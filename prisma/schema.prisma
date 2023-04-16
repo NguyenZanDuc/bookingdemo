@@ -1,0 +1,100 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+model Test{
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+}
+model Hotel{
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  address String
+  star Int //
+  avatar String //
+  images String[]
+  description String
+  rooms Room[]
+  rate Rate?
+  comments Comment[]
+  askAndQuestions AskAndQuestion[]
+  aroundHotel AroundHotel?
+  utility Utility?
+  generalrule GeneralRule?
+}
+
+type Room{
+  typeRoom String
+  badRoom String[]
+  utility String[]
+  numberOfPeople Int
+  price Int
+  sale Int
+  tags String[]
+  selection String[]
+}
+type Rate{
+  aggregate Float
+  totalRate Int
+  waitresses Float
+  comfort Float
+  clean Float
+  worthTheMoney Float
+  location Float
+}
+type Comment{
+  guestAvatar String
+  guestName String
+  country String
+  content String
+}
+type AskAndQuestion{
+  ask String
+  question String
+}
+type AroundHotel{
+  around String[]
+  coffeeAndRestaurent String[]
+  visitLocation String[]
+  naturalBeauty String[]
+  beachesInTheArea String[]
+  publicTranport String[]
+  airport String[]
+}
+type Utility{
+  bestUtility String[]
+  bathRoom String[]
+  badRoom String[]
+  outSide String[]
+  kitChen String[]
+  inRoom String[]
+  livingRoom String[]
+  mediaAndTechnology String[]
+  footAndDrink String[]
+  internet String[]
+  parkingLot String[]
+  receptionService String[]
+  clearnService String[]
+  serviceForBusinessPeople String[]
+  security String[]
+  generality String[]
+  heaithCare String[]
+  language String[]
+}
+type GeneralRule{
+  checkIn String
+  checkOut String
+  cancleBooking String
+  childrent Boolean
+  limitAge Int
+  pet Boolean
+  paymentMethod String[]
+ 
+}
