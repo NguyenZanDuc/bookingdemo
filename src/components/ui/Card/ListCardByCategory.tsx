@@ -19,11 +19,11 @@ const ListCardByCategory = ({category, description, cards}: Props) => {
     <div className="flex flex-col gap-4">
           <p className="text-2xl font-semibold">{category}</p>
           <p className="text-base font-light text-gray-600">{description}</p>
-          <div className="relative flex items-center justify-between gap-4 ">
+          <div className="relative flex flex-col items-center justify-center gap-4 lg:flex-row">
             {cards&&cards.map((card, index)=>(
                     <HotelCityCard key={index} image={card.image} title={card.title} detail={card.details} />
             ))}
-            <div className="absolute -translate-x-4 left-full top-14">
+            <div className="absolute hidden -translate-x-4 left-full lg:block top-14">
               <NextButton/>
             </div>
           </div>

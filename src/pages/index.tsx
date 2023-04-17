@@ -134,11 +134,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className="absolute top-0 ">
+    <main >
       <section >
         <Hero />
       </section>
-      <section className="flex flex-col gap-8 p-2 lg:px-32 w-[1000px] md:w-full">
+      <section className="flex flex-col gap-8 p-2 lg:px-32 md:w-full">
         <div className="flex items-center justify-start gap-5 mt-14">
             <div className="flex items-center gap-2 ">
               <Checkbox />
@@ -164,7 +164,7 @@ export default function Home() {
           </div>
         <div className="flex flex-col gap-4">
           <p className="text-2xl font-semibold">Tìm kiếm gần đây của bạn</p>
-          <div className="flex flex-wrap justify-between">
+          <div className="flex flex-col flex-wrap items-center justify-center gap-5 lg:flex-row">
             {/* list history search card */}
               <HistorySearchCard />
               <HistorySearchCard />
@@ -256,7 +256,7 @@ export default function Home() {
               </button>
           </div>
           <div className="grid grid-cols-5 gap-6">
-            {location.map((loca, index)=><Location name={loca.name} detail={loca.detail} />)}
+            {location.map((loca, index)=><Location key={index} name={loca.name} detail={loca.detail} />)}
           </div>
         </div>
       </section>
