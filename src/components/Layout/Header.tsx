@@ -22,7 +22,7 @@ import {MdOutlineUnfoldMore} from 'react-icons/md'
 type Props = {}
 
 const Header = (props: Props) => (
-  <div className="bg-transparent z-10 absolute top-0 w-full text-white lg:px-20 px-3 py-3 h-[100px] flex flex-col">
+  <div className="bg-[#01357F] z-10  w-full text-white lg:px-20 px-3 py-3 h-[100px] flex flex-col">
     <div className="flex items-center justify-between flex-1">
       <Logo />
       <div className="items-center justify-end hidden gap-6 lg:flex">
