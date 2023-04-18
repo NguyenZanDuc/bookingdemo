@@ -3,8 +3,9 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { GrNext } from 'react-icons/gr';
 import "react-datepicker/dist/react-datepicker.css";
-import SearchTab from '@/components/SearchPage/SearchTab';
 import Content from '@/components/SearchPage/Content';
+import SearchTab from '@/components/SearchPage/SearchTab/Index'
+
 
 type Props = {}
 

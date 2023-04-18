@@ -12,6 +12,7 @@ import ListCardByCategory from '@/components/ui/Card/ListCardByCategory'
 import Beach from '@/components/svg/Beach'
 import SaleCard from '@/components/ui/Card/SaleCard'
 import Location from '@/components/ui/Location'
+import Covid19Help from '@/components/General/Covid19Help'
 const cards1:HotelCity[] =[{
   image:"https://q-xx.bstatic.com/xdata/images/city/170x136/688844.jpg?k=02892d4252c5e4272ca29db5faf12104004f81d13ff9db724371de0c526e1e15&o=",
   title:"Đà Nẵng",
@@ -149,19 +150,7 @@ export default function Home() {
               <p>Tôi đi công tác</p>
             </div>
           </div>
-        <div className="group p-2 border-[0.5px] border-gray-300 duration-500">
-            <div className="flex items-center justify-between">
-                <div className="flex items-center justify-start gap-2">
-                  <Helper />
-                  <p>Trợ giúp về virus corona (COVID-19)</p>
-                </div>
-                <MdExpandMore className="w-6 h-6"/>
-            </div>
-            <div className="flex-col items-start hidden gap-2 group-hover:flex">
-              <p className="text-sm">Nhận lời khuyên mà bạn cần. Xem các hạn chế liên quan đến COVID-19 mới nhất trước khi du lịch.</p>
-              <a className="text-sm text-blue-500 cursor-pointer"  href="#">Tìm hiểu thêm</a>
-            </div>
-          </div>
+        <Covid19Help />
         <div className="flex flex-col gap-4">
           <p className="text-2xl font-semibold">Tìm kiếm gần đây của bạn</p>
           <div className="flex flex-col flex-wrap items-center justify-center gap-5 lg:flex-row">
