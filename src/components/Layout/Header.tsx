@@ -44,7 +44,7 @@ const Header = (props: Props) => (
             <IoMdNotificationsOutline className="w-6 h-6"/>
           </div>
         </Tooltip>
-        <a href="" className="p-2 text-xs font-medium rounded-xl hover:bg-white hover:bg-opacity-10">Đăng chỗ nghỉ của Quý vị</a>
+        <a href="/about" className="p-2 text-xs font-medium rounded-xl hover:bg-white hover:bg-opacity-10">Đăng chỗ nghỉ của Quý vị</a>
         <Auth />
       </div>
       <div className="flex items-center justify-center gap-5 lg:hidden">
