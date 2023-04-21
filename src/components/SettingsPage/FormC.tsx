@@ -1,5 +1,5 @@
 import React from 'react'
-import DivClick from '../ui/DivClick/DivClick'
+import FormInput from '../ui/FormInput/FormInput'
 import { Checkbox, Radio } from '@mui/material';
 import Select from 'react-select';
 
@@ -13,7 +13,7 @@ const FormC = (props: Props) => {
         { value: 'có, miễn phí', label: 'có, miễn phí' },
       ];
   return (
-    <DivClick id={"#formCSettings"} className="w-[800px] border-[2px]  flex flex-col gap-4 rounded-md p-4 bg-white">
+    <FormInput>
         <p className="py-2 text-lg">Quý vị sắp hoàn tất rồi – chỉ còn vài điều lưu ý cuối cùng</p>
         <p className="text-xl font-light">Tình trạng phòng trống của Quý vị</p>
         <p className="text-sm font-light">Để giúp Quý vị bắt đầu kiếm doanh thu, chúng tôi sẽ tự động mở chỗ nghỉ của Quý vị cho khách đặt trong 18 tháng tới. Nếu muốn thay đổi tình trạng phòng trống trước khi mở, Quý vị có thể chọn "hoàn tất đăng ký và mở sau". Tình trạng phòng trống cũng có thể được điều chỉnh sau khi Quý vị mở phòng cho khách đặt.</p>
@@ -27,7 +27,7 @@ const FormC = (props: Props) => {
             <p className='text-sm font-light'>Tôi đã đọc, chấp nhận và đồng ý với Điều khoản chung và Chính sách An toàn và Bảo mật.
 Booking.com cho phép chỗ nghỉ và khách trao đổi qua Booking.com, nơi tiếp nhận và xử lý thông tin liên lạc tuân thủ theo Chính sách An toàn và Bảo mật và Điều khoản chung của Booking.com.</p>
         </div>
-    </DivClick>
+    </FormInput>
   )
 }
 

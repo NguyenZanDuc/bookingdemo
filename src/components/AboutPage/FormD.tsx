@@ -1,5 +1,5 @@
 import React, {  } from 'react'
-import DivClick from '../ui/DivClick/DivClick'
+import FormInput from '../ui/FormInput/FormInput'
 import Select from 'react-select'
 type Props = {}
 
@@ -10,7 +10,7 @@ const FormD = (props: Props) => {
         { value: 'vanilla', label: 'Vanilla' },
       ];
   return (
-    <DivClick id={"#FormD"}  className="w-[800px] border-[2px]  flex flex-col gap-4 rounded-md p-4 bg-white text-sm">
+    <FormInput >
         <p>Chỗ nghỉ tọa lạc ở đâu?</p>
         <div className="flex gap-6">
             <div className='flex-1 min-w-[360px]'>
@@ -46,7 +46,7 @@ const FormD = (props: Props) => {
                 </div>
             </div>
         </div>
-    </DivClick>
+    </FormInput>
   )
 }
 

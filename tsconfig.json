@@ -35,7 +35,7 @@
     "**/*.tsx",
     "src/components/Layout/Layout.jsx",
     ".next/types/**/*.ts"
-, "src/components/ui/DivClick/DivClick.jsx", "src/components/MainNavbarForm/MainNavbarForm.jsx"  ],
+, "src/components/ui/FormInput/FormInput.jsx", "src/components/MainNavbarForm/MainNavbarForm.jsx"  ],
   "exclude": [
     "node_modules"
   ]

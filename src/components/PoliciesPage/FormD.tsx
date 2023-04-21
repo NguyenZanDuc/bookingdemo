@@ -1,5 +1,5 @@
 import { Radio } from "@mui/material";
-import DivClick from "../ui/DivClick/DivClick";
+import FormInput from "../ui/FormInput/FormInput";
 
 type Props = {}
 
@@ -10,7 +10,7 @@ const FormD = (props: Props) => {
         { value: 'khác', label: 'khác' },
       ];
   return (
-    <DivClick id={"#formDPolicies"} className=" border-[2px]  flex flex-col gap-4 rounded-md p-4 bg-white">
+    <FormInput>
         <p className="text-xl">Trẻ em</p>
         <p className='p-2 text-sm text-gray-500'>Quý vị có cho trẻ em đi kèm không? (Quý vị có thể nêu rõ tuổi và mức giá sau)</p>
         <div className="flex gap-2">
@@ -23,7 +23,7 @@ const FormD = (props: Props) => {
                 <p>Không</p>
             </button>
         </div>
-    </DivClick>
+    </FormInput>
   )
 }
 

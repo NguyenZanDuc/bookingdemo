@@ -1,19 +1,23 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup, TextField } from '@mui/material'
 import React, { useState } from 'react'
-import DivClick from '../ui/DivClick/DivClick'
+
 import ReactFlagsSelect from 'react-flags-select'
+import useAboutHotelForm from '@/hooks/useAboutHotelForm'
+import FormInput from '../ui/FormInput/FormInput'
 
 type Props = {}
 
 const FormB = (props: Props) => {
 
     const [selected, setSelected] = useState("GB");
+    const {aboutHotel, setNameManagerHotel, setPhoneNumberHotel, setOtherPhoneNumberHotel} =useAboutHotelForm()
   return (
-    <DivClick id={"#formB"}  className="w-[800px] border-[2px]  flex flex-col gap-4 rounded-md p-4 bg-white">
+    <FormInput>
+        
         <p className="text-xl">Chi tiết liên hệ của chỗ nghỉ là gì?</p>
         <p className="text-sm">Tên người liên hệ</p>
         <div >
-            <TextField className="w-full" label="Tên người liên hệ" value="duc nguyen"/>
+            <TextField  className="w-full" label="Tên người liên hệ" value={aboutHotel.nameManager} onChange={(e)=>{setNameManagerHotel(e.target.value)}}/>
         </div>
         <div>
             <p className="text-sm">Số điện thoại liên lạc (để chúng tôi có thể hỗ trợ đăng ký của Quý vị khi cần)</p>
@@ -28,9 +32,8 @@ const FormB = (props: Props) => {
                                     showOptionLabel={false}
                                     placeholder=""
                                     optionsSize={26}
-                        
                                 />
-                            <input type="text" className="w-full text-base outline-none"/>
+                            <input type="text" value={aboutHotel.phoneNumber} onChange={(e)=>{setPhoneNumberHotel(e.target.value)}} className="w-full text-base outline-none"/>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -58,8 +61,7 @@ const FormB = (props: Props) => {
               <FormControlLabel value={2} className="border-[0.4px] border-gray-400 rounded-md px-2 min-w-[100px]" control={<Radio />} label={"Không"} />
             </RadioGroup>
           </FormControl>
-         
-    </DivClick>
+    </FormInput>
   )
 }
 

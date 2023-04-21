@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import DivClick from '../ui/DivClick/DivClick'
+import FormInput from '../ui/FormInput/FormInput'
 import FacilityOption from '../ui/Option/FacilityOption'
 import useCheckboxGroup from '@/hooks/useCheckboxGroup'
 import { slideAnimationDuration } from '@mui/x-date-pickers/DateCalendar/PickersSlideTransition'
@@ -34,7 +34,7 @@ const FormD = (props: Props) => {
       ];
       
   return (
-        <DivClick id={"#formDCreateRoom"} className="w-[800px] border-[2px]  flex flex-col gap-4 rounded-md p-4 bg-white">
+        <FormInput >
             <p className="py-2 text-xl font-light">Những tiện nghi được khách ưa chuộng</p>
             <p className='text-xs text-gray-500 bg-[#E6E6E6] p-2'>Khách để tâm đến những tiện nghi này nhất khi họ tìm kiếm chỗ nghỉ.</p>
             <div className="grid grid-cols-2 gap-4">
@@ -43,7 +43,7 @@ const FormD = (props: Props) => {
                     return <FacilityOption key={index} isChecked={isChecked} setValue={SetValueChecked} value={facility} />
                 })}
             </div>
-        </DivClick>
+        </FormInput>
     )
   }
 

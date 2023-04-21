@@ -1,5 +1,5 @@
 import React from 'react'
-import DivClick from '../ui/DivClick/DivClick'
+import FormInput from '../ui/FormInput/FormInput'
 import { Radio } from '@mui/material';
 import Select from 'react-select';
 
@@ -13,7 +13,7 @@ const FormB = (props: Props) => {
         { value: 'có, miễn phí', label: 'có, miễn phí' },
       ];
   return (
-    <DivClick id={"#formBSettings"} className="w-[800px] border-[2px]  flex flex-col gap-4 rounded-md p-4 bg-white">
+    <FormInput >
         <p className="py-2 text-lg">Thanh toán hoa hồng</p>
         <div className="flex justify-between">
             <p className='text-sm w-[60%]'>Vào đầu mỗi tháng, chúng tôi sẽ gửi cho Quý vị hóa đơn của tất cả các đặt phòng đã hoàn tất trong tháng trước.</p>
@@ -40,7 +40,7 @@ const FormB = (props: Props) => {
                 <p>Không</p>
             </button>
         </div>
-    </DivClick>
+    </FormInput>
   )
 }
 

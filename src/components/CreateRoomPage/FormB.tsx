@@ -1,5 +1,5 @@
 import React from 'react'
-import DivClick from '../ui/DivClick/DivClick'
+import FormInput from '../ui/FormInput/FormInput'
 import Select from 'react-select'
 import { AiFillPlusCircle } from 'react-icons/ai'
 import { FaUser } from 'react-icons/fa'
@@ -13,7 +13,7 @@ const FormB = (props: Props) => {
         { value: 'vanilla', label: 'Vanilla' },
       ];
   return (
-    <DivClick id={"#formBCreateRoom"} className="w-[800px] border-[2px]  flex flex-col gap-4 rounded-md p-4 bg-white">
+    <FormInput >
         <p className="text-xl">Tùy chọn giường</p>
         <p className="text-xs text-gray-500 bg-[#E6E6E6] p-2">Hãy cho chúng tôi biết về giường có sẵn trong phòng. Không bao gồm giường phụ.</p>
         <div className="flex flex-col gap-4">
@@ -37,7 +37,7 @@ const FormB = (props: Props) => {
                 </div>
             </div>
         </div>
-    </DivClick>
+    </FormInput>
   )
 }
 

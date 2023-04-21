@@ -1,5 +1,5 @@
 import React from 'react'
-import DivClick from '../ui/DivClick/DivClick'
+import FormInput from '../ui/FormInput/FormInput'
 import Select from 'react-select'
 
 type Props = {}
@@ -11,7 +11,7 @@ const FormE = (props: Props) => {
         { value: 'có, miễn phí', label: 'có, miễn phí' },
       ];
   return (
-    <DivClick id={"#formECreateRoom"} className="w-[800px] border-[2px]  flex flex-col gap-4 rounded-md p-4 bg-white">
+    <FormInput>
         <p className="py-2 text-xl font-light">Vật nuôi</p>
         <p className='text-xs text-gray-500 bg-[#E6E6E6] p-2'>Một số khách thích đi du lịch cùng vật nuôi của họ. Xin cho biết Quý vị có cho phép vật nuôi vào chỗ nghỉ không và có tính phí gì không.</p>
         <div>
@@ -19,7 +19,7 @@ const FormE = (props: Props) => {
             <Select className="text-xs w-[360px]" value={options[0]}
                             options={options}/>
         </div>
-    </DivClick>
+    </FormInput>
   )
 }
 

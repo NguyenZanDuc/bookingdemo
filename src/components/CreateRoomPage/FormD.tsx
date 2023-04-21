@@ -1,11 +1,11 @@
 import React from 'react'
-import DivClick from '../ui/DivClick/DivClick'
+import FormInput from '../ui/FormInput/FormInput'
 
 type Props = {}
 
 const FormD = (props: Props) => {
   return (
-    <DivClick id={"#formDCreateRoom"} className="w-[800px] border-[2px]  flex flex-col gap-4 rounded-md p-4 bg-white">
+    <FormInput >
         <p className="text-xl">Giá cơ bản mỗi đêm</p>
         <p className='text-xs text-gray-600 p-[3px] bg-[#E6E6E6]'>Đây là giá thấp nhất mà chúng tôi tự động áp dụng đối với phòng này cho tất cả các ngày. Trước khi chỗ nghỉ online, Quý vị có thể cài đặt giá theo mùa trong trang dashboard của chỗ nghỉ.</p>
         <p className="text-sm">Giá cho 1 người</p>
@@ -16,7 +16,7 @@ const FormD = (props: Props) => {
             <input type="text" className="w-1/2 px-2" placeholder='0' />
         </div>
         
-    </DivClick>
+    </FormInput>
   )
 }
 

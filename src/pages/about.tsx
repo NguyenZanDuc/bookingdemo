@@ -7,10 +7,12 @@ import MainNavbarForm from '@/components/MainNavbarForm/MainNavbarForm'
 import { useRouter } from 'next/router'
 import React from 'react'
 
+
 type Props = {}
 
 const about = (props: Props) => {
    const route = useRouter()
+  
    function HandleContinue(){
       route.replace("/createroom")
    }

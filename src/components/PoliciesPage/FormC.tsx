@@ -1,5 +1,5 @@
 import React from 'react'
-import DivClick from '../ui/DivClick/DivClick'
+import FormInput from '../ui/FormInput/FormInput'
 import Select from 'react-select'
 
 type Props = {}
@@ -11,7 +11,7 @@ const FormC = (props: Props) => {
         { value: 'khác', label: 'khác' },
       ];
   return (
-    <DivClick id={"#formCPolicies"} className=" border-[2px]  flex flex-col gap-4 rounded-md p-4 bg-white">
+    <FormInput>
         <p className="text-xl">Nhận phòng</p>
         <p>từ:</p>
         <div className="flex gap-1">
@@ -41,7 +41,7 @@ const FormC = (props: Props) => {
             <Select className="text-xs w-[86px] h-[38px] " value={options[2]}
                             options={options}/>
         </div>
-    </DivClick>
+    </FormInput>
   )
 }
 

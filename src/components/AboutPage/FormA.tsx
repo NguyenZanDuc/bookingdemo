@@ -2,16 +2,19 @@ import useClickValue from '@/hooks/useClickValue'
 import { MenuItem, Rating, Select, styled } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { AiFillStar } from 'react-icons/ai'
-import { useSelector } from 'react-redux'
-import DivClick from '../ui/DivClick/DivClick'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { updateNameHotel, updateStarHotel } from '@/slice/Hotel/about'
+import useAboutHotelForm from '@/hooks/useAboutHotelForm'
+import FormInput from '../ui/FormInput/FormInput'
 type Props = {}
 const FormA = (props: Props) => {
 
+  const {aboutHotel,setNameHotel, setStarHotel} = useAboutHotelForm();
+
   return (
-    <DivClick id={"#formA"} className="w-[800px] border-[2px]  flex flex-col gap-4 rounded-md p-4 bg-white">
-            <p className="text-xl">Tên của chỗ nghỉ là gì?</p>
-            <input type="text" className="border-[0.4px] border-gray-300 rounded-sm w-[40%] text-base py-2 px-2"/>
+    <FormInput >
+            <p className="text-xl">Tên của chỗ nghỉ là gì? </p>
+            <input type="text" value={aboutHotel.nameHotel} onChange={(e)=>{setNameHotel(e.target.value)}} className="border-[0.4px] border-gray-300 rounded-sm w-[40%] text-base py-2 px-2"/>
             <p className="text-xs">Tên này sẽ được hiển thị tới khách khi họ tìm kiếm chỗ nghỉ.</p>
             <p className="text-sm">Xếp hạng sao</p>
             <Select
@@ -19,7 +22,7 @@ const FormA = (props: Props) => {
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={"0"}
-                label=""
+                onChange={(e)=>{setStarHotel(e.target.value)}}
                 defaultValue='Không áp dụng'
             >
                 <MenuItem value={"Không áp dụng"}>Không áp dụng</MenuItem>
@@ -69,7 +72,7 @@ const FormA = (props: Props) => {
                                         emptyIcon={<AiFillStar className="text-transparent bg-transparent" fontSize="inherit" />}/>
                 </MenuItem>
             </Select>
-        </DivClick>
+        </FormInput>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import DivClick from '../ui/DivClick/DivClick'
+import FormInput from '../ui/FormInput/FormInput'
 import Select from 'react-select'
 import { IoMdNotifications } from 'react-icons/io'
 
@@ -12,7 +12,7 @@ const FormA = (props: Props) => {
         { value: 'có, miễn phí', label: 'có, miễn phí' },
       ]
   return (
-    <DivClick id={"#formAPolicies"} className="w-[800px] border-[2px]  flex flex-col gap-4 rounded-md p-4 bg-white">
+    <FormInput >
         <p className="text-xl font-light">Hủy đặt phòng</p>
         <p className="text-sm">Khách có thể hủy đặt phòng trước bao nhiêu ngày để được miễn phí?</p>
         <Select className="text-xs min-w-1/2 max-w-[2/3]" value={options[2]}
@@ -27,7 +27,7 @@ const FormA = (props: Props) => {
             </div>
             <p className="text-xs text-gray-400">Xin lưu ý: Quý vị sẽ có thể thay đổi các chính sách của mình sau. Phần này chỉ giúp Quý vị bắt đầu.</p>
         </div>
-    </DivClick>
+    </FormInput>
   )
 }
 
