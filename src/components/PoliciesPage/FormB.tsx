@@ -1,16 +1,19 @@
 import React from 'react'
 import FormInput from '../ui/FormInput/FormInput'
 import { Switch } from '@mui/material'
+import useFacilitiesHotel from '@/hooks/useFacilities'
+import usePoliciesHotel from '@/hooks/usePoliciesHotel'
 
 type Props = {}
 
 const FormB = (props: Props) => {
+  const {policiesHotel, setIsInsurance} = usePoliciesHotel()
   return (
     <FormInput>
         <div className="flex items-center justify-between">
             <p className="text-2xl">Bảo hiểm đối với những đặt phòng do nhầm lẫn</p>
             <div className="flex items-center gap-2">
-                <Switch color="success"/>
+                <Switch color="success" checked={policiesHotel.isInsurance} onChange={(e,checked)=>{setIsInsurance(checked)}}/>
                 <p className="textsm">Có</p>
             </div>
         </div>

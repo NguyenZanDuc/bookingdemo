@@ -12,7 +12,7 @@ export interface Policies{
 }
 
 export default function usePoliciesHotel(){
-    const policiesHotel = useSelector((state: any)=>state.policiesHotel)
+    const policiesHotel:Policies = useSelector((state: any)=>state.policiesHotel.value)
     const dispatch = useDispatch()
 
     function setDayCanCancel (value: number){

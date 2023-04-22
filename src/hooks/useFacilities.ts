@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import {updatePark, updateIsPrivate, updateIsInside, updateIsReservation, updateHaveBreakFast, updateType, updateLanguare, updateBestFacility} from "../slice/Hotel/facilities"
+import {updatePark, updateIsPrivate, updateIsInside, updateIsReservation, updateHaveBreakFast, updateType, updateLanguage, updateBestFacility} from "../slice/Hotel/facilities"
 
 export interface FacilitiesHotel{
   park: string,
@@ -8,7 +8,7 @@ export interface FacilitiesHotel{
   isReservation: boolean,
   haveBreakFast: string,
   type: string,
-  languare: string[],
+  language: string[],
   bestFacility: string[]
 }
 
@@ -33,10 +33,10 @@ export default function useFacilitiesHotel(){
       function setType (value: string){
         dispatch(updateType({value: value}))
     }
-      function setLanguare (value: []){
-        dispatch(updateLanguare({value: value}))
+      function setLanguage (value: string[]){
+        dispatch(updateLanguage({value: value}))
     }
-      function setBestFacility (value: []){
+      function setBestFacility (value: string[]){
         dispatch(updateBestFacility({value: value}))
     }
       
@@ -48,7 +48,7 @@ export default function useFacilitiesHotel(){
         setIsReservation,
         setHaveBreakFast,
         setType,
-        setLanguare,
+        setLanguage,
         setBestFacility
     }
     }

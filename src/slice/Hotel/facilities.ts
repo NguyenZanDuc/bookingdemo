@@ -8,9 +8,9 @@ export const facilitiesHotelSlice = createSlice({
            isPrivate: true,
            isInside: true,
            isReservation: true,
-           haveBreakFast: "",
-           type: "",
-           languare: ["Tiếng Việt"],
+           haveBreakFast: "Không",
+           type: "Á",
+           language: ["Tiếng Việt"],
            bestFacility: [],
         }
     },
@@ -33,13 +33,13 @@ export const facilitiesHotelSlice = createSlice({
           updateType: (state, action)=>{
             state.value.type = action.payload.value
           },
-          updateLanguare: (state, action)=>{
-            state.value.languare = action.payload.value
+          updateLanguage: (state, action)=>{
+            state.value.language = action.payload.value
           },
           updateBestFacility: (state, action)=>{
             state.value.bestFacility = action.payload.value
           },
     }
 })
-export const {updatePark, updateIsPrivate, updateIsInside, updateIsReservation, updateHaveBreakFast, updateType, updateLanguare, updateBestFacility} = facilitiesHotelSlice.actions;
+export const {updatePark, updateIsPrivate, updateIsInside, updateIsReservation, updateHaveBreakFast, updateType, updateLanguage, updateBestFacility} = facilitiesHotelSlice.actions;
 export default facilitiesHotelSlice.reducer

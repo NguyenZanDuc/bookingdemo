@@ -18,7 +18,7 @@ const FormB = (props: Props) => {
         <p  className="py-2 text-xl font-light">Bữa sáng</p>
         <div>
             <p className="py-2 text-sm">Qúy vị có phục vụ bữa sáng cho khách không?</p>
-            <Select className="min-w-1/2 tex-sm" value={{value:facilitiesHotel.haveBreakFast, label: facilitiesHotel.haveBreakFast}} onChange={(e:any)=>{setHaveBreakFast(e.value)}}
+            <Select className="w-1/2 tex-sm " value={{value:facilitiesHotel.haveBreakFast, label: facilitiesHotel.haveBreakFast}} onChange={(e:any)=>{setHaveBreakFast(e.value)}}
                             options={options}/>
         </div>
     </FormInput>

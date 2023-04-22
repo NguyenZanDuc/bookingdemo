@@ -1,14 +1,17 @@
 import MainNavbarForm from '@/components/MainNavbarForm/MainNavbarForm'
 import FormA from '@/components/PoliciesPage/FormA'
 import FormB from '@/components/PoliciesPage/FormB'
-import FormC from '@/components/PoliciesPage/FormC'
+import FormCI from '@/components/PoliciesPage/FormCI'
+import FormCII from '@/components/PoliciesPage/FormCII'
 import FormD from '@/components/PoliciesPage/FormD'
 import FormE from '@/components/PoliciesPage/FormE'
+import usePoliciesHotel from '@/hooks/usePoliciesHotel'
 import React from 'react'
 
 type Props = {}
 
 const policies = (props: Props) => {
+    const {setCheckIn, setCheckOut} = usePoliciesHotel()
   return (
    <MainNavbarForm>
         <div className="flex flex-col gap-6 py-6">
@@ -18,9 +21,9 @@ const policies = (props: Props) => {
                 <div className="w-[800px] flex flex-col gap-5">
                         <FormA />
                         <FormB />
-                        <div className='flex justify-between w-full'>
-                            <FormC />
-                            <FormC />
+                        <div className='flex justify-between w-full gap-6'>
+                            <FormCI onChange={setCheckIn}/>
+                            <FormCII onChange={setCheckOut} />
                         </div>
                         <FormD />
                         <FormE />
