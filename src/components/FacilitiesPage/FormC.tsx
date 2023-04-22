@@ -16,7 +16,7 @@ const FormC = (props: Props) => {
         <p className="py-2 text-xl font-light">Ngôn ngữ được sử dụng</p>
         <p className='text-xs text-gray-500 bg-[#E6E6E6] p-2'>Ngôn ngữ Quý vị hoặc nhân viên sử dụng?</p>
         <div>
-            <Select className="text-xs min-w-[360px]" value={options[1]}
+            <Select className="text-sm min-w-[360px]" value={options[1]}
                             options={options}/>
         </div>
         <button className="flex items-center text-xs ">
