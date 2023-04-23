@@ -1,7 +1,10 @@
 import MainNavbarForm from '@/components/MainNavbarForm/MainNavbarForm'
+import useImage from '@/hooks/useImage'
 import { Input } from '@mui/material'
+import { useSupabaseClient } from '@supabase/auth-helpers-react'
+import { Guid } from 'guid-typescript'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsFillImageFill } from 'react-icons/bs'
 import { GiSmartphone } from 'react-icons/gi'
 import { GrFormNext } from 'react-icons/gr'
@@ -10,10 +13,52 @@ import { MdPhotoCamera } from 'react-icons/md'
 type Props = {}
 
 const photos = (props: Props) => {
+    const {setImage} = useImage()
+    const [list, setList] = useState<string[]>()
     const route = useRouter()
+    const supaBase = useSupabaseClient();
     function HandleContinue(){
         route.replace("/settings")
      }
+     const [files, setFiles] = useState<File[]>();
+     function HandleChangeFile(e:any){
+        if(e.target.files&&e.target.files[0]){
+                    setFiles(e.target.files)
+                }
+        console.log(files)
+     }
+     function addList(item: string){
+        setList((ls:any)=>{
+            if(!ls)return[item]
+            return [...ls, item]
+        })
+     }
+     function removeList(item: string){
+        setList((ls)=>{
+            let newList = ls?.filter(i=>i!=item)
+             return newList
+        })
+     }
+     async function SaveImage(image:File){
+          //save supabse and save redux
+          if(image){
+            const imageNameRandom = Guid.create().toString();
+             const imageUrl = `https://xvxcgatezndxyaprjjvg.supabase.co/storage/v1/object/public/hotelImage/${imageNameRandom}.png`
+            const {data, error} = await supaBase.storage.from("hotelImage").upload(`${imageNameRandom}.png`,image)
+            addList(imageUrl)
+            return
+          }
+     }
+     useEffect(()=>{
+        if(files){
+            for(var i = 0; i<files.length; i++)
+            SaveImage(files[i])
+        }
+     },[files])
+     useEffect(()=>{
+        if(list)setImage(list)
+        console.log(list)
+     },[list])
   return (
    <MainNavbarForm>
         <div className="flex flex-col gap-6 py-6">
@@ -31,7 +76,7 @@ const photos = (props: Props) => {
                             <p className="text-sm text-gray-300">hoặc</p>
                             <button className="flex items-center justify-center gap-2 p-2 bg-[#3175B1] rounded-sm text-white text-base font-light"><BsFillImageFill /> Thêm ảnh</button>
                         </div>
-                        <Input type='file' className="absolute top-0 left-0 z-10 w-full h-full text-white opacity-0 cursor-pointer"/>
+                        <input type="file" multiple onChange={HandleChangeFile} className="absolute top-0 left-0 z-20 w-full h-full text-white opacity-0 cursor-pointer"/>
                     </div>
                     <div className="bg-[#FCF4D8] p-4 text-sm font-light">
                         <p className="py-3 text-xl font-normal">Không có hình ảnh chuyên nghiệp? Không sao!</p>
@@ -75,3 +120,7 @@ const photos = (props: Props) => {
 }
 
 export default photos
+
+// onChange={(e)=>{ 
+//     
+//     }}

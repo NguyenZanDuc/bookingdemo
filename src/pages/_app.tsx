@@ -5,9 +5,8 @@ import { SessionContextProvider } from '@supabase/auth-helpers-react'
 import { useState } from 'react'
 import Layout from '@/components/Layout/Layout'
 import { Provider } from 'react-redux'
-import { store } from '../app/store'
-import { NextUIProvider } from '@nextui-org/react';
-
+import { persistor, store } from '../app/store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 export default function App({ Component, pageProps }: AppProps) {
   const [supabaseClient] = useState(() => createBrowserSupabaseClient())
@@ -18,9 +17,11 @@ export default function App({ Component, pageProps }: AppProps) {
     >
 
         <Provider store={store}>
-          <Layout>
-              <Component {...pageProps} />
-          </Layout>
+          <PersistGate loading={null} persistor={persistor}>
+            <Layout>
+                  <Component {...pageProps} />
+              </Layout>
+          </PersistGate>
         </Provider>
     </SessionContextProvider>
   )

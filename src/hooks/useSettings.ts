@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import {updateIsCreaditCard, updateCreditCards, updateInvoiceRecipient, updateIsGenericAddress, updateAddress, updateIsAvailability} from "../slice/Hotel/settings"
+import {updateIsCreditCard, updateCreditCards, updateInvoiceRecipient, updateIsGenericAddress, updateAddress, updateIsAvailability} from "../slice/Hotel/settings"
 
 export interface Settings{
-    isCreaditCard: boolean,
+    isCreditCard: boolean,
     creditCards: string[],
     invoiceRecipient: string,
     isGenericAddress: boolean,
@@ -11,29 +11,29 @@ export interface Settings{
 }
 
 export default function useSettings(){
-    const settingsHotel = useSelector((state:any)=> state.settingsHotel.value)
+    const settingsHotel:Settings = useSelector((state:any)=> state.settingsHotel.value)
     const dispatch = useDispatch()
-   function setIsCreaditCard( value: string){
-        updateIsCreaditCard({value: value})
+   function setIsCreditCard( value: boolean){
+        dispatch(updateIsCreditCard({value: value}))
       }
      function setCreditCards( value: []){
-        updateCreditCards({value: value})
+      dispatch(updateCreditCards({value: value}))
       }
      function setInvoiceRecipient( value: string){
-        updateInvoiceRecipient({value: value})
+      dispatch(updateInvoiceRecipient({value: value}))
       }
      function setIsGenericAddress( value: boolean){
-        updateIsGenericAddress({value: value})
+      dispatch(updateIsGenericAddress({value: value}))
       }
      function setAddress( value: string){
-        updateAddress({value: value})
+      dispatch(updateAddress({value: value}))
       }
      function setIsAvailability( value: boolean){
-        updateIsAvailability({value: value})
+      dispatch(updateIsAvailability({value: value}))
       }
     return{
         settingsHotel,
-        setIsCreaditCard,
+        setIsCreditCard,
         setCreditCards,
         setInvoiceRecipient,
         setIsGenericAddress,

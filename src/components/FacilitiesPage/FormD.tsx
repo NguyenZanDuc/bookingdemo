@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import FormInput from '../ui/FormInput/FormInput'
 import FacilityOption from '../ui/Option/FacilityOption'
-import useCheckboxGroup from '@/hooks/useCheckboxGroup'
+
 import { slideAnimationDuration } from '@mui/x-date-pickers/DateCalendar/PickersSlideTransition'
 import useFacilitiesHotel from '@/hooks/useFacilities'
+import useCheckboxGroup from '@/hooks/useCheckboxGroup'
 
 
 

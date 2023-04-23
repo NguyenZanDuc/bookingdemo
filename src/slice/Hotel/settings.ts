@@ -4,7 +4,7 @@ export const settingsHotelSlice = createSlice({
     name:"settingsHotel",
     initialState: {
         value:{
-           isCreaditCard: true,
+           isCreditCard: false,
            creditCards: [],
            invoiceRecipient: "",
            isGenericAddress: true,
@@ -13,8 +13,8 @@ export const settingsHotelSlice = createSlice({
         }
     },
     reducers:{
-          updateIsCreaditCard: (state, action)=>{
-            state.value.isCreaditCard = action.payload.value
+          updateIsCreditCard: (state, action)=>{
+            state.value.isCreditCard = action.payload.value
           },
           updateCreditCards: (state, action)=>{
             state.value.creditCards = action.payload.value
@@ -33,5 +33,5 @@ export const settingsHotelSlice = createSlice({
           },
     }
 })
-export const {updateIsCreaditCard, updateCreditCards, updateInvoiceRecipient, updateIsGenericAddress, updateAddress, updateIsAvailability} = settingsHotelSlice.actions;
+export const {updateIsCreditCard, updateCreditCards, updateInvoiceRecipient, updateIsGenericAddress, updateAddress, updateIsAvailability} = settingsHotelSlice.actions;
 export default settingsHotelSlice.reducer

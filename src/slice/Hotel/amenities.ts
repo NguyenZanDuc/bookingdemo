@@ -6,8 +6,10 @@ export const amenitiesHotelSlice = createSlice({
         value:{
           isExtraBedOption: true,
           favourite: [],
+          inside: [],
           bathRoom: [],
           mediaAndTech: [],
+          service: [],
           foot: [],
           outSide: [],
           disabilitiesService: [],
@@ -21,11 +23,17 @@ export const amenitiesHotelSlice = createSlice({
         updateFavourite: (state, action)=>{
           state.value.favourite = action.payload.value
         },
+        updateInside: (state, action)=>{
+          state.value.inside = action.payload.value
+        },
         updateBathRoom: (state, action)=>{
           state.value.bathRoom = action.payload.value
         },
         updateMediaAndTech: (state, action)=>{
           state.value.mediaAndTech = action.payload.value
+        },
+        updateService: (state, action)=>{
+          state.value.service = action.payload.value
         }
         ,updateFoot: (state, action)=>{
           state.value.foot = action.payload.value
@@ -41,5 +49,5 @@ export const amenitiesHotelSlice = createSlice({
         }
     }
 })
-export const {updateIsExtraOption, updateFavourite, updateBathRoom, updateOutSide, updateDisabilitiesService, updateFamilyService, updateFoot, updateMediaAndTech} = amenitiesHotelSlice.actions;
+export const {updateIsExtraOption, updateFavourite,updateInside, updateBathRoom, updateOutSide,updateService, updateDisabilitiesService, updateFamilyService, updateFoot, updateMediaAndTech} = amenitiesHotelSlice.actions;
 export default amenitiesHotelSlice.reducer
