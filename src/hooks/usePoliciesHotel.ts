@@ -39,6 +39,7 @@ export default function usePoliciesHotel(){
       }
     return{
         policiesHotel,
+        PoliciesHotelSchema,
         setDayCanCancel,
         setPriceAll,
         setIsInsurance,

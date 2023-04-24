@@ -6,18 +6,22 @@ import FormD from '@/components/AboutPage/FormD'
 import MainNavbarForm from '@/components/MainNavbarForm/MainNavbarForm'
 import useAboutHotelForm from '@/hooks/useAboutHotelForm'
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {} from '../slice/Hotel/about'
 import { Alert, Snackbar } from '@mui/material'
+import {AboutSucess, AboutChecking} from '../slice/Navbar/stateNavbar'
+import { useDispatch } from 'react-redux'
 type Props = {}
 
 const about = (props: Props) => {
     const route = useRouter()
+    const dispatch = useDispatch()
     const {aboutHotel, AboutHotelSchema} = useAboutHotelForm()
     const [error, setError] = useState<string>();
     async function HandleContinue(){
         try {
             await AboutHotelSchema.validate(aboutHotel);
+            dispatch(AboutSucess())
             route.replace("/createroom")
         } catch (err:any) {
             setError(err.errors[0])
@@ -33,7 +37,9 @@ const about = (props: Props) => {
      }
      setOpen(false);
    };
- 
+   useEffect(()=>{
+    dispatch(AboutChecking())
+   },[])
   return (
         <MainNavbarForm>
         <div className="flex flex-col gap-4 py-6">

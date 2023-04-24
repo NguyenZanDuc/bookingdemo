@@ -5,6 +5,7 @@ import { object, string, number, date, InferType } from 'yup';
 const AboutHotelSchema = object({
     nameHotel: string().required().min(5, "leng"),
     star: string().required(),
+    property: string().required(),
     nameManager: string().required(),
     phoneNumber:string().required(),
     otherPhoneNumber: string().required(),

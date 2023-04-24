@@ -6,7 +6,9 @@ import imageHotelReducer from '../slice/Hotel/image'
 import policiesHotelReducer from '../slice/Hotel/policies'
 import roomHotelReducer from '../slice/Hotel/room'
 import settingsHotelReducer from '../slice/Hotel/settings'
+import stateNavbarReducer from '../slice/Navbar/stateNavbar'
 import { persistStore, persistReducer } from 'redux-persist'
+
 import storage from 'redux-persist/lib/storage'
 const persistConfig = {
   key: 'root',
@@ -21,6 +23,7 @@ const rootReducer = combineReducers({
     policiesHotel: policiesHotelReducer,
     roomHotel: roomHotelReducer,
     settingsHotel: settingsHotelReducer,
+    stateNavbar: stateNavbarReducer
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 

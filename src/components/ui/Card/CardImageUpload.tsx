@@ -1,5 +1,5 @@
 
-import { styled } from '@mui/material'
+import { Skeleton, styled } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { BiPencil } from 'react-icons/bi'
 import { BsCheckLg } from 'react-icons/bs'
@@ -17,6 +17,7 @@ type Props = {
 
 const CardImageUpload = ({urlImage, onDelete, onSelect, onDisSelect, isSelected}: Props) => {
     const [isSelect, setIsSelect] = useState(false);
+    const [loaded, setloaded] = useState(false);
     const DivSelect = styled('div')(()=>{
             let borderWidth = isSelect?"3px":"0.4px"
             let borderColor = isSelect?"#0171C2":"#999999"
@@ -49,9 +50,11 @@ const CardImageUpload = ({urlImage, onDelete, onSelect, onDisSelect, isSelected}
                 <BsCheckLg className="w-6 h-6"/>
         </button>
        )}
+       {!loaded&&(<Skeleton variant="rectangular" width={235} height={155} />)}
         <div className="">
-            <img src={`${BaseUrl}${urlImage}`} alt='image' className="object-contain w-full h-full"/>
+            <img onLoad={()=>{setloaded(true)}}  style={{ opacity: loaded ? "1" : "0" ,height: loaded?"155px":"0px"}} src={`${BaseUrl}${urlImage}`} alt='image' className="object-contain w-[235px] h-full"/>
         </div>
+       {/* ):(<Skeleton variant="rectangular" width={235} height={155} />)} */}
         <div className="flex items-center justify-center gap-4 py-2">
             <button className="text-sm text-[#3175B1] hover:opacity-50 flex gap-2 items-center">
                 <BiPencil />

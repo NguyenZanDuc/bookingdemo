@@ -1,16 +1,19 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import {BsCheckLg} from 'react-icons/bs'
 const MainNavbarForm = ({children}) => {
+  const stateNavbar = useSelector((state)=>state.stateNavbar.value)
+ const  {about, amenities,facilities, image,policies,room,settings} = stateNavbar
   return (
     <div className="px-32 w-screen bg-[#F5F5F5]">
         <div className="flex gap-2 ">
-            <a className="text-[13px] font-light py-4 border-b-[3px] text-center border-gray-600 flex-1 bg-[#EFEFEF] hover:text-blue-600 " href="/about">Thông tin cơ bản</a>           
-            <a className="text-[13px] font-light py-4 border-b-[3px] text-center border-gray-600 flex-1 bg-[#EFEFEF] hover:text-blue-600 "  href="/createroom">Bố cục và giá</a>
-            <a className="text-[13px] font-light py-4 border-b-[3px] text-center border-gray-600 flex-1 bg-[#EFEFEF] hover:text-blue-600 "  href="/facilities">Tiện nghi và phục vụ</a>
-            <a className="text-[13px] font-light py-4 border-b-[3px] text-center border-gray-600 flex-1 bg-[#EFEFEF] hover:text-blue-600 "  href="/amenities">Tiện nghi</a>
-            <a className="text-[13px] font-light py-4 border-b-[3px] text-center border-gray-600 flex-1 bg-[#EFEFEF] hover:text-blue-600 "  href="/photos">Hình ảnh</a>
-            <a className="text-[13px] font-light py-4 border-b-[3px] text-center border-gray-600 flex-1 bg-[#EFEFEF] hover:text-blue-600 "  href="/policies">Chính sách</a>
-            <a className="text-[13px] font-light py-4 border-b-[3px] text-center border-gray-600 flex-1 bg-[#EFEFEF] hover:text-blue-600 "  href="/settings">Thanh toán</a>
+            <a style={{borderColor: about?"#0171C2":"#4B5563"}} className="text-[13px] font-light py-4 border-b-[4px] text-center flex-1 bg-[#EFEFEF] hover:text-blue-600 flex items-center justify-center gap-2" href="/about">{(about)&&(<BsCheckLg className="w-7 h-7 text-[#00800A]"/>)}Thông tin cơ bản</a>           
+            <a style={{borderColor: room?"#0171C2":"#4B5563"}} className="text-[13px] font-light py-4 border-b-[4px] text-center flex-1 bg-[#EFEFEF] hover:text-blue-600 flex items-center justify-center gap-2"  href="/createroom">{(room)&&(<BsCheckLg className="w-7 h-7 text-[#00800A]"/>)}Bố cục và giá</a>
+            <a style={{borderColor: facilities?"#0171C2":"#4B5563"}} className="text-[13px] font-light py-4 border-b-[4px] text-center flex-1 bg-[#EFEFEF] hover:text-blue-600 flex items-center justify-center gap-2"  href="/facilities">{(facilities)&&(<BsCheckLg className="w-7 h-7 text-[#00800A]"/>)}Tiện nghi và phục vụ</a>
+            <a style={{borderColor: amenities?"#0171C2":"#4B5563"}} className="text-[13px] font-light py-4 border-b-[4px] text-center flex-1 bg-[#EFEFEF] hover:text-blue-600 flex items-center justify-center gap-2"  href="/amenities">{(amenities)&&(<BsCheckLg className="w-7 h-7 text-[#00800A]"/>)}Tiện nghi</a>
+            <a style={{borderColor: image?"#0171C2":"#4B5563"}} className="text-[13px] font-light py-4 border-b-[4px] text-center flex-1 bg-[#EFEFEF] hover:text-blue-600 flex items-center justify-center gap-2"  href="/photos">{(image)&&(<BsCheckLg className="w-7 h-7 text-[#00800A]"/>)}Hình ảnh</a>
+            <a style={{borderColor: policies?"#0171C2":"#4B5563"}} className="text-[13px] font-light py-4 border-b-[4px] text-center flex-1 bg-[#EFEFEF] hover:text-blue-600 flex items-center justify-center gap-2"  href="/policies">{(policies)&&(<BsCheckLg className="w-7 h-7 text-[#00800A]"/>)}Chính sách</a>
+            <a style={{borderColor: settings?"#0171C2":"#4B5563"}} className="text-[13px] font-light py-4 border-b-[4px] text-center flex-1 bg-[#EFEFEF] hover:text-blue-600 flex items-center justify-center gap-2"  href="/settings">{(settings)&&(<BsCheckLg className="w-7 h-7 text-[#00800A]"/>)}Thanh toán</a>
         </div>
         {children}
       

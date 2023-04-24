@@ -2,32 +2,66 @@ import MainNavbarForm from '@/components/MainNavbarForm/MainNavbarForm'
 import FormA from '@/components/SettingsPage/FormA'
 import FormB from '@/components/SettingsPage/FormB'
 import FormC from '@/components/SettingsPage/FormC'
-import React from 'react'
+import React, { useState } from 'react'
 import { AiFillCheckCircle} from 'react-icons/ai'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from "axios"
 import useResetState from '@/hooks/useResetSate'
 import { useRouter } from 'next/navigation'
+import {SettingsChecking, SettingsSucess} from '../slice/Navbar/stateNavbar'
+import useSettings from '@/hooks/useSettings'
+import { Alert, Snackbar } from '@mui/material'
 
 type Props = {}
 
 const settings = (props: Props) => {
+    const [error, setError] = useState<string>();
+    const [open, setOpen] = useState(false);
     const state = useSelector((state:any)=>state)
     const route = useRouter()
+    const dispatch = useDispatch()
+    const {settingsHotel, SettingsHotelSchema} = useSettings()
     const testApi = axios.create({baseURL:"http://localhost:3000"})
     const {resetSate} = useResetState()
    async function HandleSubmit(){
-       const data = await testApi.post("/api/hotel",state)
-      if(data){
-         resetSate()
-        route.replace("/")
+    try {
+        await SettingsHotelSchema.validate(settings);
+        dispatch(SettingsSucess())
+        const data = await testApi.post("/api/hotel",state)
+        if(data){
+           resetSate()
+          route.replace("/")
+        }
+      } catch (err:any) {
+          setError(err.errors[0])
+          setOpen(true)
+          console.log(err.errors) // => 'ValidationError'
+          
+      }
+     
      }
-    }
+     const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+        setOpen(false);
+      };
+    
   return (
     <MainNavbarForm>
           <div className="flex flex-col gap-6 py-6">
-        <p className="text-xl font-bold">Thanh toán</p>
-        <p className="text-sm font-light">Vui lòng nêu phương thức thanh toán Quý vị chấp nhận, các chi tiết về thuế cùng với những lựa chọn khác như các loại phụ phí.</p>
+                <p className="text-xl font-bold">Thanh toán</p>
+                <p className="text-sm font-light">Vui lòng nêu phương thức thanh toán Quý vị chấp nhận, các chi tiết về thuế cùng với những lựa chọn khác như các loại phụ phí.</p>
+                {error&&(
+                        <div className="text-sm font-bold text-[#A30100] border-[1px] w-1/2 border-[#CC0100] p-3 rounded-md" >
+                            <p>{error}</p>
+                        </div>
+                    )}
+                <Snackbar open={open} autoHideDuration={4000}  onClose={handleClose}>
+                                <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                                    {error}
+                                </Alert>
+                </Snackbar>
         </div>
         <div className="flex w-full gap-4 pb-8">
           <div className="w-[800px] flex flex-col gap-5">

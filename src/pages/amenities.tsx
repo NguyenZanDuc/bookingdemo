@@ -2,15 +2,22 @@ import FormA from '@/components/Amenities/FormA'
 import FormB from '@/components/Amenities/FormB'
 import MainNavbarForm from '@/components/MainNavbarForm/MainNavbarForm'
 import { useRouter } from 'next/router'
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import {AmentiesChecking, AmentiesSucess} from '../slice/Navbar/stateNavbar'
+import { useDispatch } from 'react-redux'
 type Props = {}
 
 const amenities = (props: Props) => {
   const route = useRouter()
+  const dispatch = useDispatch()
+
     function HandleContinue(){
         route.replace("/photos")
+        dispatch(AmentiesChecking())
      }
+     useEffect(()=>{
+      dispatch(AmentiesSucess())
+     },[])
   return (
     <MainNavbarForm>
         <div className="flex flex-col gap-6 py-6">

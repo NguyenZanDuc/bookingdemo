@@ -6,7 +6,9 @@ import MainNavbarForm from '@/components/MainNavbarForm/MainNavbarForm'
 import useFacilitiesHotel from '@/hooks/useFacilities'
 import { Alert, Snackbar } from '@mui/material'
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import {FacilitiesChecking, FacilitiesSucess} from '../slice/Navbar/stateNavbar'
+import { useDispatch } from 'react-redux'
 
 
 type Props = {}
@@ -14,11 +16,14 @@ type Props = {}
 const facilities = (props: Props) => {
     const [error, setError] = useState<string>();
     const [open, setOpen] = useState(false);
+    const dispatch = useDispatch()
+
     const {FacilitiesSchema, facilitiesHotel} = useFacilitiesHotel()
     const route = useRouter()
      async function HandleContinue(){
       try {
           await FacilitiesSchema.validate(facilitiesHotel);
+          dispatch(FacilitiesSucess())
             route.replace("/amenities")
         } catch (err:any) {
             setError(err.errors[0])
@@ -33,6 +38,9 @@ const facilities = (props: Props) => {
         }
         setOpen(false);
       };
+      useEffect(()=>{
+        dispatch(FacilitiesChecking())
+       },[])
   return (
     <MainNavbarForm>
         <div className="flex flex-col gap-6 py-6">

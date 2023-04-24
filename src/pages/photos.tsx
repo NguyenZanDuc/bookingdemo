@@ -10,17 +10,21 @@ import { BsFillImageFill } from 'react-icons/bs'
 import { GiSmartphone } from 'react-icons/gi'
 import { GrFormNext } from 'react-icons/gr'
 import { MdPhotoCamera } from 'react-icons/md'
+import {ImageChecking, ImageSucess} from '../slice/Navbar/stateNavbar'
+import { useDispatch } from 'react-redux'
 
 type Props = {}
 const photos = (props: Props) => {
     const {images,setImage} = useImage()
     const route = useRouter()
     const supaBase = useSupabaseClient();
+    const dispatch = useDispatch()
    
      const [files, setFiles] = useState<File[]>()
      const [urls, setUrls] = useState(images)
      const [imageSelected, setImageSelected] = useState<string[]>([])
      function HandleContinue(){
+        dispatch(ImageSucess())
         route.replace("/settings")
      }
      function HandleChangeFile(e:any){
@@ -83,6 +87,9 @@ const photos = (props: Props) => {
         setUrls(newUrls)
         setImageSelected([])
     }
+    useEffect(()=>{
+        dispatch(ImageChecking())
+       },[])
   return (
    <MainNavbarForm>
         <div className="flex flex-col gap-6 py-6">
