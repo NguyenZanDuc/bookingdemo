@@ -28,8 +28,8 @@ const facilities = ["Wi-Fi miễn phí",
                     "Hồ bơi"
                     ]   
 const FormD = (props: Props) => {
-    const {selected, CheckIsChecked, SetValueChecked} = useCheckboxGroup([])
     const {facilitiesHotel, setBestFacility} = useFacilitiesHotel()
+    const {selected, CheckIsChecked, SetValueChecked} = useCheckboxGroup(facilitiesHotel.bestFacility)
       useEffect(()=>{
         setBestFacility(selected)
       },[selected])

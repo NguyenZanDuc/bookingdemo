@@ -1,4 +1,4 @@
-import {updateNameHotel, updateStarHotel, updateNameManagerHotel, updateOtherPhoneNumber, updatePhoneNumberHotel, updateNameCompanyHotel, updateNameToolManagerHotel, updateStreetHotel, updateMoreAddressHotel, updatePortalCodeHotel, updateCountryHotel, updateCityHotel} from '../slice/Hotel/about'
+import {updateNameHotel, updateStarHotel, updatePropertyHotel,updateNameManagerHotel, updateOtherPhoneNumber, updatePhoneNumberHotel, updateNameCompanyHotel, updateNameToolManagerHotel, updateStreetHotel, updateMoreAddressHotel, updatePortalCodeHotel, updateCountryHotel, updateCityHotel} from '../slice/Hotel/about'
 import { useDispatch, useSelector } from "react-redux";
 export interface AboutHotel{
     nameHotel: string,
@@ -23,6 +23,9 @@ export default function useAboutHotelForm(){
     }
     function setStarHotel(value: string){
         dispath(updateStarHotel({value: value}))
+    }
+    function setPropertyHotel(value: string){
+        dispath(updatePropertyHotel({value: value}))
     }
     function setNameManagerHotel(value: string){
         dispath(updateNameManagerHotel({value: value}))
@@ -59,6 +62,7 @@ export default function useAboutHotelForm(){
         aboutHotel,
         setNameHotel,
         setStarHotel,
+        setPropertyHotel,
         setNameManagerHotel,
         setPhoneNumberHotel,
         setOtherPhoneNumberHotel,

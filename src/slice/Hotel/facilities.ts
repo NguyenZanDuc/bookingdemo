@@ -1,20 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const Defaulvalue = {
+        park: "Không",
+        isPrivate: true,
+        isInside: true,
+        isReservation: true,
+        haveBreakFast: "Không",
+        type: "Á",
+        language: ["Tiếng Việt"],
+        bestFacility: [],
+      }
 export const facilitiesHotelSlice = createSlice({
     name:"facilitiesHotel",
     initialState: {
-        value:{
-           park: "Không",
-           isPrivate: true,
-           isInside: true,
-           isReservation: true,
-           haveBreakFast: "Không",
-           type: "Á",
-           language: ["Tiếng Việt"],
-           bestFacility: [],
-        }
+        value: Defaulvalue
     },
     reducers:{
+          resetFacilitiesHotel:(state)=>{
+            state.value = Defaulvalue;
+          },
           updatePark: (state, action)=>{
             state.value.park = action.payload.value
           },
@@ -41,5 +44,5 @@ export const facilitiesHotelSlice = createSlice({
           },
     }
 })
-export const {updatePark, updateIsPrivate, updateIsInside, updateIsReservation, updateHaveBreakFast, updateType, updateLanguage, updateBestFacility} = facilitiesHotelSlice.actions;
+export const {resetFacilitiesHotel ,updatePark, updateIsPrivate, updateIsInside, updateIsReservation, updateHaveBreakFast, updateType, updateLanguage, updateBestFacility} = facilitiesHotelSlice.actions;
 export default facilitiesHotelSlice.reducer

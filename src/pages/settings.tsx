@@ -4,10 +4,25 @@ import FormB from '@/components/SettingsPage/FormB'
 import FormC from '@/components/SettingsPage/FormC'
 import React from 'react'
 import { AiFillCheckCircle} from 'react-icons/ai'
+import { useSelector } from 'react-redux'
+import axios from "axios"
+import useResetState from '@/hooks/useResetSate'
+import { useRouter } from 'next/navigation'
 
 type Props = {}
 
 const settings = (props: Props) => {
+    const state = useSelector((state:any)=>state)
+    const route = useRouter()
+    const testApi = axios.create({baseURL:"http://localhost:3000"})
+    const {resetSate} = useResetState()
+   async function HandleSubmit(){
+       const data = await testApi.post("/api/hotel",state)
+      if(data){
+         resetSate()
+        route.replace("/")
+     }
+    }
   return (
     <MainNavbarForm>
           <div className="flex flex-col gap-6 py-6">
@@ -19,7 +34,7 @@ const settings = (props: Props) => {
             <FormA />
             <FormB />
             <FormC />
-            <button className="w-full text-white text-lg bg-[#3175B1] rounded-sm py-2">Hoàn tất đăng ký và mở phòng cho khách đặt</button>
+            <button onClick={()=>{HandleSubmit()}} className="w-full text-white text-lg bg-[#3175B1] rounded-sm py-2">Hoàn tất đăng ký và mở phòng cho khách đặt</button>
           </div>
           <div className="w-[260px] flex flex-col gap-5">
                 <div className="p-3 text-xs bg-[#F8FBFD] ">

@@ -68,3 +68,11 @@ Content-Type: application/json
         "paymentMethod": ["master card","visa", "money"]
     }
 }
+
+###
+POST http://localhost:3000/api/hello
+Content-Type: application/json
+
+{
+    "data": "adsas"
+}

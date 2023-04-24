@@ -1,4 +1,5 @@
 import MainNavbarForm from '@/components/MainNavbarForm/MainNavbarForm'
+import CardImageUpload from '@/components/ui/Card/CardImageUpload'
 import useImage from '@/hooks/useImage'
 import { Input } from '@mui/material'
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
@@ -11,54 +12,77 @@ import { GrFormNext } from 'react-icons/gr'
 import { MdPhotoCamera } from 'react-icons/md'
 
 type Props = {}
-
 const photos = (props: Props) => {
-    const {setImage} = useImage()
-    const [list, setList] = useState<string[]>()
+    const {images,setImage} = useImage()
     const route = useRouter()
     const supaBase = useSupabaseClient();
-    function HandleContinue(){
+   
+     const [files, setFiles] = useState<File[]>()
+     const [urls, setUrls] = useState(images)
+     const [imageSelected, setImageSelected] = useState<string[]>([])
+     function HandleContinue(){
         route.replace("/settings")
      }
-     const [files, setFiles] = useState<File[]>();
      function HandleChangeFile(e:any){
         if(e.target.files&&e.target.files[0]){
                     setFiles(e.target.files)
                 }
-        console.log(files)
      }
-     function addList(item: string){
-        setList((ls:any)=>{
-            if(!ls)return[item]
-            return [...ls, item]
-        })
+      async function removeUrl(item: string){
+        var newUrl = urls.filter((i:any)=>i!=item)
+        setUrls(newUrl)
+        await supaBase.storage.from("hotelImage").remove([item])
+
      }
-     function removeList(item: string){
-        setList((ls)=>{
-            let newList = ls?.filter(i=>i!=item)
-             return newList
-        })
-     }
-     async function SaveImage(image:File){
-          //save supabse and save redux
-          if(image){
+      async function SaveImage(image:File){
+            if(image){
             const imageNameRandom = Guid.create().toString();
-             const imageUrl = `https://xvxcgatezndxyaprjjvg.supabase.co/storage/v1/object/public/hotelImage/${imageNameRandom}.png`
             const {data, error} = await supaBase.storage.from("hotelImage").upload(`${imageNameRandom}.png`,image)
-            addList(imageUrl)
+            setUrls((urls:any)=>[...urls,`${imageNameRandom}.png` ])
             return
-          }
+            }
      }
-     useEffect(()=>{
-        if(files){
-            for(var i = 0; i<files.length; i++)
-            SaveImage(files[i])
-        }
-     },[files])
-     useEffect(()=>{
-        if(list)setImage(list)
-        console.log(list)
-     },[list])
+        useEffect(()=>{
+            console.log(urls)
+            setImage(urls)
+        },[urls])
+        useEffect(()=>{
+                if(files){
+                    for(var i = 0; i<files.length; i++){
+                        SaveImage(files[i])
+                        console.log({files: files})
+                    }
+                }
+        },[files])
+    function selectAllImage(){
+        setImageSelected(urls)
+    }
+    function removeAllImage(){
+        setImageSelected([])
+    }
+    function AddSelectImage(url: string){
+        setImageSelected(pres=>[...pres,url])
+    }
+    function RemoveSelectImage(url: string){
+        let newImageSelects = imageSelected.filter(i=>i!=url)
+        setImageSelected( newImageSelects)
+    }
+    function deleteImage(){
+        imageSelected.forEach(async url=>{
+           await removeUrl(url)
+        })
+        let newUrls = urls.filter((url:string)=>{
+            let isSelect = true
+            imageSelected.forEach((imageSelect:string)=>{
+                if(imageSelect==url){
+                    isSelect =false
+                }
+            })
+            return isSelect
+        })
+        setUrls(newUrls)
+        setImageSelected([])
+    }
   return (
    <MainNavbarForm>
         <div className="flex flex-col gap-6 py-6">
@@ -77,6 +101,31 @@ const photos = (props: Props) => {
                             <button className="flex items-center justify-center gap-2 p-2 bg-[#3175B1] rounded-sm text-white text-base font-light"><BsFillImageFill /> Thêm ảnh</button>
                         </div>
                         <input type="file" multiple onChange={HandleChangeFile} className="absolute top-0 left-0 z-20 w-full h-full text-white opacity-0 cursor-pointer"/>
+                    </div>
+                    {(imageSelected.length>0)&&(
+                         <div className="flex items-center justify-end gap-5 text-xs font-bold">
+                         <p>{imageSelected.length}/{urls.length} ảnh được chọn</p>
+                         <button className="text-[#0171c2]" onClick={selectAllImage}>
+                             Chọn tất cả
+                         </button >
+                         <button className="text-[#0171c2]" onClick={removeAllImage}>
+                             Bỏ chọn tất cả
+                         </button>
+                         <button className="text-[#A50905]" onClick={deleteImage}>
+                             Xoá ảnh
+                         </button>
+                     </div>
+                    )}
+                    <div className="grid grid-cols-3 gap-4">
+                        {(urls.length!=0)&&urls.map((item:string, index:number)=>{
+                            let isSelect = false
+                            imageSelected.forEach(imageSelect=>{
+                                if(imageSelect==item){
+                                    isSelect = true
+                                }
+                            })
+                            return ( <CardImageUpload isSelected ={isSelect}  key={index} urlImage={item} onDelete={removeUrl} onSelect={AddSelectImage} onDisSelect={RemoveSelectImage}/>)
+                        })}
                     </div>
                     <div className="bg-[#FCF4D8] p-4 text-sm font-light">
                         <p className="py-3 text-xl font-normal">Không có hình ảnh chuyên nghiệp? Không sao!</p>
@@ -121,6 +170,3 @@ const photos = (props: Props) => {
 
 export default photos
 
-// onChange={(e)=>{ 
-//     
-//     }}

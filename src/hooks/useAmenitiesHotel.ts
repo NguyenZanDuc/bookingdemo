@@ -14,7 +14,7 @@ export interface AmenitiesHotel{
 }
 export default function useAmenitiesHotel(){
     const dispatch = useDispatch();
-    const amenitiesHotel = useSelector((state: any)=>state.amenitiesHotel.value)
+    const amenitiesHotel:AmenitiesHotel = useSelector((state: any)=>state.amenitiesHotel.value)
 
     function setIsExtraOption (value: boolean){
         dispatch(updateIsExtraOption({value: value}))

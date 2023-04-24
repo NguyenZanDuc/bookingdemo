@@ -1,22 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const Defaulvalue = {
+  isExtraBedOption: true,
+  favourite: [],
+  inside: [],
+  bathRoom: [],
+  mediaAndTech: [],
+  service: [],
+  foot: [],
+  outSide: [],
+  disabilitiesService: [],
+  familyService: [],
+}
 export const amenitiesHotelSlice = createSlice({
     name:"amenitiesHotel",
     initialState: {
-        value:{
-          isExtraBedOption: true,
-          favourite: [],
-          inside: [],
-          bathRoom: [],
-          mediaAndTech: [],
-          service: [],
-          foot: [],
-          outSide: [],
-          disabilitiesService: [],
-          familyService: [],
-        }
+        value: Defaulvalue
     },
     reducers:{
+        resetAmenitiesHotel:(state)=>{
+        state.value = Defaulvalue;
+       },
         updateIsExtraOption: (state, action)=>{
           state.value.isExtraBedOption = action.payload.value
         },
@@ -49,5 +52,5 @@ export const amenitiesHotelSlice = createSlice({
         }
     }
 })
-export const {updateIsExtraOption, updateFavourite,updateInside, updateBathRoom, updateOutSide,updateService, updateDisabilitiesService, updateFamilyService, updateFoot, updateMediaAndTech} = amenitiesHotelSlice.actions;
+export const {resetAmenitiesHotel ,updateIsExtraOption, updateFavourite,updateInside, updateBathRoom, updateOutSide,updateService, updateDisabilitiesService, updateFamilyService, updateFoot, updateMediaAndTech} = amenitiesHotelSlice.actions;
 export default amenitiesHotelSlice.reducer

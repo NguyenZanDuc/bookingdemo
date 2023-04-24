@@ -29,7 +29,7 @@ const owner = (props: Props) => {
                         </a>
                     </button>
                     <button className="text-sm font-bold flex justify-center items-center text-white flex-1 bg-[#1375C4] rounded-sm">
-                        <a href="">
+                        <a href="/become-a-host/feedback">
                             Tiếp tục
                         </a>
                     </button>

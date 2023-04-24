@@ -239,9 +239,6 @@ Option value
     "disabilities":["Phòng nằm ở tầng trệt","Phòng hoàn toàn có thể tiếp cận bằng xe lăn","Các tầng trên đi lên bằng thang máy","Các tầng trên chỉ lên được bằng cầu thang","Toilet dành cho người khuyết tật"],
     "familyService":["Cửa an toàn cho trẻ nhỏ","Trò chơi board game/giải đố","Sách, đĩa DVD và nhạc cho trẻ em","Nắp che ổ cắm điện an toàn"]
     
-
-    
-
-
-
 }
+
+

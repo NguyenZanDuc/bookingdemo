@@ -20,7 +20,7 @@ const category = () => {
                 </div>
                 <div className="border-[0.4px]  border-gray-300 gap-4 p-4 flex w-[750px] bg-white">
                     <CardHostCreateCategory title={'Nhà'} description={'Các chỗ nghỉ như căn hộ, nhà nghỉ dưỡng, biệt thự, v.v.'} image={'/host/nha.png'} />
-                    <CardHostCreateCategory className="border-x-[0.4px] px-4  border-gray-300" title={'Khách sạn, nhà nghỉ B&B hay tương tự'} description={'Các chỗ nghỉ như khách sạn, nhà nghỉ B&B, nhà khách, hostel, khách sạn căn hộ, v.v.'} image={'/host/khachsannhanghi.png'} />
+                    <CardHostCreateCategory href='/become-a-host/property' className="border-x-[0.4px] px-4  border-gray-300" title={'Khách sạn, nhà nghỉ B&B hay tương tự'} description={'Các chỗ nghỉ như khách sạn, nhà nghỉ B&B, nhà khách, hostel, khách sạn căn hộ, v.v.'} image={'/host/khachsannhanghi.png'} />
                     <CardHostCreateCategory title={'Các loại chỗ nghỉ khác'} description={'Các chỗ nghỉ như tàu thuyền, khu cắm trại, lều trại sang trọng, v.v.'} image={'/host/cacloaichonghikhac.png'} />
                 </div>
             </div>

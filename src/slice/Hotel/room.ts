@@ -1,21 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const Defaulvalue = {
+                  typeRoom: "Phòng giường đôi",
+                  nameRoom: "",
+                  nameOption: "",
+                  smoking: "",
+                  numberRoom: 1,
+                  bedsOption: [{typeBed: "", number: 1}],
+                  numberPeople: 0,
+                  roomSize: 0,
+                  price: 0
+                }
 export const roomHotelSlice = createSlice({
     name:"roomHotel",
     initialState: {
-        value:{
-          typeRoom: "Phòng giường đôi",
-           nameRoom: "",
-           nameOption: "",
-           smoking: "",
-           numberRoom: 1,
-           bedsOption: [{typeBed: "", number: 1}],
-           numberPeople: 0,
-           roomSize: 0,
-           price: 0
-        }
+        value: Defaulvalue
     },
     reducers:{
+          resetRoomHotel:(state)=>{
+            state.value = Defaulvalue;
+          },
           updateTypeRoom: (state, action)=>{
             state.value.typeRoom = action.payload.value
           },
@@ -45,5 +48,5 @@ export const roomHotelSlice = createSlice({
           }
     }
 })
-export const {updateTypeRoom ,updateNameOption, updateNameRoom, updateSmoking, updateNumberPeople, updateNumberRoom,updateBedOption, updateRoomSize, updatePrice} = roomHotelSlice.actions;
+export const {resetRoomHotel ,updateTypeRoom ,updateNameOption, updateNameRoom, updateSmoking, updateNumberPeople, updateNumberRoom,updateBedOption, updateRoomSize, updatePrice} = roomHotelSlice.actions;
 export default roomHotelSlice.reducer

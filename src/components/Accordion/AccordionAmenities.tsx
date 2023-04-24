@@ -7,11 +7,12 @@ import { INSIDEROOM } from '@/CONST/Amenities';
 type Props = {
     title: string,
     options: string[],
-    onChange?: Function
+    onChange?: Function,
+    acoordionInit: string[]
 }
 
-const AccordionAmenities = ({title, options, onChange}: Props) => {
-    const [list, setList] = useState<string[]>();
+const AccordionAmenities = ({title, options, onChange, acoordionInit}: Props) => {
+    const [list, setList] = useState<string[]>(acoordionInit);
     function HandleCheckbox(e:any, value: string){
         if(e.target.checked){
             setList(pre=>{
@@ -40,8 +41,16 @@ const AccordionAmenities = ({title, options, onChange}: Props) => {
         </AccordionSummary>
         <AccordionDetails className="max-h-[400px] overflow-scroll">
             {options.map((element, index)=>{
-                    return (<label key={index} className="flex gap-3 p-2 bg-gray-200 border-b-[0.5px] border-gray-400">
-                                <input type="checkbox" onChange={(e)=>{HandleCheckbox(e, element)}}/>
+                let isChecked= false
+                        if(list){
+                            list.forEach(el=>{
+                                if(el==element){
+                                    isChecked=true
+                                }
+                            })
+                        }
+                    return (<label key={index}  className="flex gap-3 p-2 bg-gray-200 border-b-[0.5px] border-gray-400">
+                                <input type="checkbox" checked={isChecked} onChange={(e)=>{HandleCheckbox(e, element)}}/>
                                 <span className='text-sm'>{element}</span>
                             </label>)}
             )}

@@ -1,29 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const Defaulvalue = {
+    nameHotel: "",
+    star: 0,
+    property: "",
+    nameManager: "nguyen duc",
+    phoneNumber:"",
+    otherPhoneNumber:"",
+    nameCompany: "",
+    nameToolManager: "",
+    street: "",
+    moreAddress: "",
+    country:"Việt Nam",
+    city:"",
+    portalCode: 0
+}
 export const aboutHotelSlice = createSlice({
     name:"aboutHotel",
     initialState: {
-        value:{
-            nameHotel: "",
-            star: 0,
-            nameManager: "nguyen duc",
-            phoneNumber:"",
-            otherPhoneNumber:"",
-            nameCompany: "",
-            nameToolManager: "",
-            street: "",
-            moreAddress: "",
-            country:"Việt Nam",
-            city:"",
-            portalCode: 0
-        }
+        value:Defaulvalue
     },
     reducers:{
+        resetAboutHotel:(state)=>{
+            state.value = Defaulvalue;
+        },
         updateNameHotel: (state, action)=>{
             state.value.nameHotel = action.payload.value
         },
         updateStarHotel:(state, action)=>{
             state.value.star = action.payload.value
+        },
+        updatePropertyHotel:(state, action)=>{
+            state.value.property = action.payload.value
         },
         updateNameManagerHotel:(state, action)=>{
             state.value.nameManager = action.payload.value
@@ -57,5 +64,5 @@ export const aboutHotelSlice = createSlice({
         },
     }
 })
-export const {updateNameHotel, updateStarHotel, updateNameManagerHotel, updatePhoneNumberHotel,updateOtherPhoneNumber, updateNameCompanyHotel, updateNameToolManagerHotel, updateStreetHotel, updateMoreAddressHotel,updateCountryHotel, updatePortalCodeHotel, updateCityHotel} = aboutHotelSlice.actions;
+export const {resetAboutHotel,updateNameHotel, updateStarHotel,updatePropertyHotel, updateNameManagerHotel, updatePhoneNumberHotel,updateOtherPhoneNumber, updateNameCompanyHotel, updateNameToolManagerHotel, updateStreetHotel, updateMoreAddressHotel,updateCountryHotel, updatePortalCodeHotel, updateCityHotel} = aboutHotelSlice.actions;
 export default aboutHotelSlice.reducer

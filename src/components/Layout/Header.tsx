@@ -22,7 +22,7 @@ import {MdOutlineUnfoldMore} from 'react-icons/md'
 type Props = {}
 
 const Header = (props: Props) => (
-  <div className="bg-[#01357F] z-10  w-full text-white lg:px-20 px-3 py-3 h-[100px] flex flex-col">
+  <div className="bg-[#01357F] z-10  w-full lg:px-20 px-3 py-3 text-white h-[100px] flex flex-col">
     <div className="flex items-center justify-between flex-1">
       <Logo />
       <div className="items-center justify-end hidden gap-6 lg:flex">
@@ -44,7 +44,7 @@ const Header = (props: Props) => (
             <IoMdNotificationsOutline className="w-6 h-6"/>
           </div>
         </Tooltip>
-        <a href="/about" className="p-2 text-xs font-medium rounded-xl hover:bg-white hover:bg-opacity-10">Đăng chỗ nghỉ của Quý vị</a>
+        <a href="/become-a-host/category" className="p-2 text-xs font-medium rounded-xl hover:bg-white hover:bg-opacity-10">Đăng chỗ nghỉ của Quý vị</a>
         <Auth />
       </div>
       <div className="flex items-center justify-center gap-5 lg:hidden">
@@ -53,13 +53,13 @@ const Header = (props: Props) => (
       </div>
     </div>
     <div className="items-center justify-start flex-1 hidden gap-2 md:flex" >
-      <Button variant="text" startIcon={<IoBedOutline/>} className="text-white rounded-xl"><a className="font-sans text-xs " href="">Lưu trú</a></Button>
-      <Button variant="text" startIcon={<GiAirplaneDeparture/>} className="text-white rounded-xl"><a className="font-sans text-xs " href="">Chuyến bay</a></Button>
-      <Button variant="text" startIcon={<FlightsAndhotels/>} className="text-white rounded-xl"><a className="font-sans text-xs " href="">Chuyến bay + Khách sạn</a></Button>
-      <Button variant="text" startIcon={<CarRental/>} className="hidden text-white lg:flex rounded-xl"><a className="font-sans text-xs " href="">Thuê xe</a></Button>
-      <Button variant="text" startIcon={<Location/>} className="hidden text-white lg:flex rounded-xl" ><a className="font-sans text-xs " href="">Địa điểm tham quan</a></Button>
-      <Button variant="text" startIcon={<AirportTaxi/>} className="hidden text-white lg:flex rounded-xl"><a className="font-sans text-xs " href="">Taxi sân bay</a></Button>
-      <Button variant="text" endIcon={<MdOutlineUnfoldMore/>} className="text-white lg:hidden rounded-xl"><a className="font-sans text-xs " href="">Khac</a></Button>
+      <Button variant="text" startIcon={<IoBedOutline className="text-white"/>} className="rounded-xl"><a className="font-sans text-xs text-white" href="">Lưu trú</a></Button>
+      <Button variant="text" startIcon={<GiAirplaneDeparture  className="text-white"/>} className="rounded-xl"><a className="font-sans text-xs text-white" href="">Chuyến bay</a></Button>
+      <Button variant="text" startIcon={<FlightsAndhotels/>} className="rounded-xl"><a className="font-sans text-xs text-white" href="">Chuyến bay + Khách sạn</a></Button>
+      <Button variant="text" startIcon={<CarRental/>} className="hidden lg:flex rounded-xl"><a className="font-sans text-xs text-white" href="">Thuê xe</a></Button>
+      <Button variant="text" startIcon={<Location/>} className="hidden lg:flex rounded-xl" ><a className="font-sans text-xs text-white" href="">Địa điểm tham quan</a></Button>
+      <Button variant="text" startIcon={<AirportTaxi/>} className="hidden lg:flex rounded-xl"><a className="font-sans text-xs text-white" href="">Taxi sân bay</a></Button>
+      <Button variant="text" endIcon={<MdOutlineUnfoldMore className='text-white'/>} className="lg:hidden rounded-xl"><a className="font-sans text-xs text-white" href="">Khac</a></Button>
     
     </div>
   </div>

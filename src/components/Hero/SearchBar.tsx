@@ -28,7 +28,7 @@ const SearchBar = (props: Props) => {
             </div>
         </div>
         <div>
-            <Button className="bg-[#003A62] w-full h-full text-white">
+            <Button className="w-full h-full " variant="contained">
                 Tìm
             </Button>
         </div>

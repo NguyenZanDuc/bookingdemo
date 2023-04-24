@@ -15,30 +15,48 @@ model Test{
 }
 model Hotel{
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  address String
+  nameHotel String
   star Int //
   avatar String //
   images String[]
-  description String
-  rooms Room[]
+  description String?
+  property String
+  nameManager String
+  phoneNumber String
+  otherPhoneNumber String?
+  nameCompany String?
+  nameToolManager String?
+  street String
+  moreAddress String?
+  country String
+  city String
+  potalCode String
+
+  rooms Room?
   rate Rate?
   comments Comment[]
   askAndQuestions AskAndQuestion[]
   aroundHotel AroundHotel?
-  utility Utility?
-  generalrule GeneralRule?
+  amenitiesHotel AmenitiesHotel?
+  facilitiesHotel FacilitiesHotel?
+  policiesHotel PoliciesHotel?
+  settingsHotel SettingsHotel?
 }
 
 type Room{
   typeRoom String
-  badRoom String[]
-  utility String[]
-  numberOfPeople Int
+  nameRoom String
+  nameOptions String?
+  smoking String
+  numberRoom Int
+  bedsOption BedOption[]
+  numberPeople Int
+  roomSize Int
   price Int
-  sale Int
-  tags String[]
-  selection String[]
+}
+type BedOption{
+  typeBed String
+  number Int
 }
 type Rate{
   aggregate Float
@@ -59,6 +77,7 @@ type AskAndQuestion{
   ask String
   question String
 }
+
 type AroundHotel{
   around String[]
   coffeeAndRestaurent String[]
@@ -68,33 +87,43 @@ type AroundHotel{
   publicTranport String[]
   airport String[]
 }
-type Utility{
-  bestUtility String[]
+
+type AmenitiesHotel{
+  isExtraBedOption Boolean
+  favourite String[]
+  inside String[]
+  foot String[]
   bathRoom String[]
-  badRoom String[]
+  mediaAndTech String[]
+  service String[]
   outSide String[]
-  kitChen String[]
-  inRoom String[]
-  livingRoom String[]
-  mediaAndTechnology String[]
-  footAndDrink String[]
-  internet String[]
-  parkingLot String[]
-  receptionService String[]
-  clearnService String[]
-  serviceForBusinessPeople String[]
-  security String[]
-  generality String[]
-  heaithCare String[]
-  language String[]
+  disabilitiesService String[]
+  familyService String[]
 }
-type GeneralRule{
+type FacilitiesHotel{
+  park String
+  isPrivate Boolean
+  isInside Boolean
+  isReservation Boolean
+  haveBreakFast String
+  type String
+  language String[]
+  bestFacility String[]
+}
+type PoliciesHotel{
+  dayCanCancel Int
+  priceAll Boolean
+  isInsurance Boolean
   checkIn String
   checkOut String
-  cancleBooking String
-  childrent Boolean
-  limitAge Int
-  pet Boolean
-  paymentMethod String[]
- 
+  isChildren Boolean
+  isPet Boolean
+}
+type SettingsHotel{
+  isCreditCard Boolean
+  creditCards String[]
+  invoiceRecipient String
+  isGenericAddress Boolean
+  address String
+  isAvailability Boolean
 }

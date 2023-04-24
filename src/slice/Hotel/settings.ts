@@ -1,18 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const Defaulvalue = {
+  isCreditCard: false,
+  creditCards: [],
+  invoiceRecipient: "",
+  isGenericAddress: true,
+  address: "",
+  isAvailability: true
+}
 export const settingsHotelSlice = createSlice({
-    name:"settingsHotel",
-    initialState: {
-        value:{
-           isCreditCard: false,
-           creditCards: [],
-           invoiceRecipient: "",
-           isGenericAddress: true,
-           address: "",
-           isAvailability: true
-        }
-    },
-    reducers:{
+          name:"settingsHotel",
+          initialState: {
+              value: Defaulvalue
+          },
+          reducers:{
+          resetSettingsHotel:(state)=>{
+            state.value = Defaulvalue;
+          },
           updateIsCreditCard: (state, action)=>{
             state.value.isCreditCard = action.payload.value
           },
@@ -33,5 +36,5 @@ export const settingsHotelSlice = createSlice({
           },
     }
 })
-export const {updateIsCreditCard, updateCreditCards, updateInvoiceRecipient, updateIsGenericAddress, updateAddress, updateIsAvailability} = settingsHotelSlice.actions;
+export const {resetSettingsHotel ,updateIsCreditCard, updateCreditCards, updateInvoiceRecipient, updateIsGenericAddress, updateAddress, updateIsAvailability} = settingsHotelSlice.actions;
 export default settingsHotelSlice.reducer

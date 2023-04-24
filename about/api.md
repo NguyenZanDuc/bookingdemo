@@ -19,15 +19,15 @@ response
 ```json
 response
 {
-    "id": "121312",
-    "name": "Raon Danang Beach",
-    "address": "Bai bien mi khe, Da Nang",
-    "images": ["url0","url1"],
-    "description":"Tọa lạc tại thành phố Đà Nẵng, cách Bãi biển Mỹ Khê 400 m và Bãi biển Bắc Mỹ An chưa đầy 1 km, Raon Danang Beach cung cấp chỗ nghỉ với sảnh khách chung và WiFi miễn phí trong toàn bộ khuôn viên cũng...",
+    "id": "121312",#
+    "name": "Raon Danang Beach",#
+    "address": "Bai bien mi khe, Da Nang",#
+    "images": ["url0","url1"],#
+    "description":"Tọa lạc tại thành phố Đà Nẵng, cách Bãi biển Mỹ Khê 400 m và Bãi biển Bắc Mỹ An chưa đầy 1 km, Raon Danang Beach cung cấp chỗ nghỉ với sảnh khách chung và WiFi miễn phí trong toàn bộ khuôn viên cũng...",#
     "rooms":[{
-                "typeRoom": "Phòng Superior Giường Đôi - Không có Cửa sổ",
-                "badroom": ["1 giuong doi lon"],
-                "utility": ["ban cong", "asas"],
+                "typeRoom": "Phòng Superior Giường Đôi - Không có Cửa sổ",#
+                "badroom": ["1 giuong doi lon"],#
+                "utility": ["ban cong", "asas"],X
                 "numberOfPeople": 2,
                 "price": 1000000,
                 "sale": 73,
@@ -76,7 +76,4 @@ response
 ```
 \
 \
-Post Hotel
-\
--name, address
--
+

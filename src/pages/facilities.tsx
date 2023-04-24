@@ -12,7 +12,7 @@ type Props = {}
 const facilities = (props: Props) => {
   const route = useRouter()
     function HandleContinue(){
-        route.replace("/photos")
+        route.replace("/amenities")
      }
   return (
     <MainNavbarForm>

@@ -1,19 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const Defaulvalue = {
+            dayCanCancel: 0,
+            priceAll: true,
+            isInsurance: true,
+            checkIn:"",
+            checkOut: "",
+            isChildren: true,
+            isPet: true
+          }
 export const policiesHotelSlice = createSlice({
     name:"policiesHotel",
     initialState: {
-        value:{
-          dayCanCancel: 0,
-          priceAll: true,
-          isInsurance: true,
-          checkIn:"",
-          checkOut: "",
-          isChildren: true,
-          isPet: true
-        }
+        value: Defaulvalue
     },
     reducers:{
+      resetPoliciesHotel:(state)=>{
+        state.value = Defaulvalue;
+       },
       updateDayCanCancel: (state, action)=>{
         state.value.dayCanCancel = action.payload.value
       },
@@ -37,5 +40,5 @@ export const policiesHotelSlice = createSlice({
       }
     }
 })
-export const {updateDayCanCancel, updatePriceAll, updateIsInsurance, updateCheckIn, updateCheckOut, updateIsChildren, updateIsPet} = policiesHotelSlice.actions;
+export const {resetPoliciesHotel ,updateDayCanCancel, updatePriceAll, updateIsInsurance, updateCheckIn, updateCheckOut, updateIsChildren, updateIsPet} = policiesHotelSlice.actions;
 export default policiesHotelSlice.reducer
