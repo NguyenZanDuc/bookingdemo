@@ -1,18 +1,34 @@
 import { useDispatch, useSelector } from "react-redux";
 import  { updateTypeRoom,updateNameOption, updateNameRoom, updateSmoking, updateNumberPeople, updateNumberRoom,updateBedOption, updateRoomSize, updatePrice} from "../slice/Hotel/room"
+import { object, string, number, InferType, boolean, array } from 'yup';
 
-export interface RoomHotel{
+
+const RoomHotelSchema = object({
+  typeRoom: string().required(),
+  nameRoom: string().required(),
+  nameOption: string().required(),
+  smoking: string().required(),
+  numberRoom: number().required(),
+  bedsOption: array().of(object().required().shape({
+                            typeBed: string().required(),
+                            number: number().required()
+                          })),
+  numberPeople: number().required(),
+  roomSize: number().required(),
+  price: number().required()
+})
+type RoomHotel = {
   typeRoom: string,
   nameRoom: string,
   nameOption: string,
   smoking: string,
   numberRoom: number,
-  bedOption: BedOption[],
+  bedsOption: BedOption[]
   numberPeople: number,
   roomSize: number,
   price: number
 }
-export interface BedOption{
+type BedOption = {
   typeBed: string,
   number: number
 }
@@ -48,6 +64,7 @@ export default function useRoomHotel(){
       }
     return{
         roomHotel,
+        RoomHotelSchema,
         setTypeRoom,
         setNameRoom,
         setNameOption,

@@ -4,24 +4,52 @@ import FormB from '@/components/AboutPage/FormB'
 import FormC from '@/components/AboutPage/FormC'
 import FormD from '@/components/AboutPage/FormD'
 import MainNavbarForm from '@/components/MainNavbarForm/MainNavbarForm'
+import useAboutHotelForm from '@/hooks/useAboutHotelForm'
 import { useRouter } from 'next/router'
-import React from 'react'
-
-
+import React, { useState } from 'react'
+import {} from '../slice/Hotel/about'
+import { Alert, Snackbar } from '@mui/material'
 type Props = {}
 
 const about = (props: Props) => {
-   const route = useRouter()
-  
-   function HandleContinue(){
-      route.replace("/createroom")
+    const route = useRouter()
+    const {aboutHotel, AboutHotelSchema} = useAboutHotelForm()
+    const [error, setError] = useState<string>();
+    async function HandleContinue(){
+        try {
+            await AboutHotelSchema.validate(aboutHotel);
+            route.replace("/createroom")
+        } catch (err:any) {
+            setError(err.errors[0])
+            setOpen(true)
+            console.log(err.errors) // => 'ValidationError'
+            
+        }
    }
+   const [open, setOpen] = useState(false);
+   const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+     if (reason === 'clickaway') {
+       return;
+     }
+     setOpen(false);
+   };
+ 
   return (
         <MainNavbarForm>
-             <div className="flex flex-col gap-4 py-6">
+        <div className="flex flex-col gap-4 py-6">
             <p className="text-2xl font-bold">Xin chào duc nguyen!</p>
             <p className="text-sm">Hãy bắt đầu bằng cách cho chúng tôi biết tên, địa chỉ cùng chi tiết liên hệ của chỗ nghỉ.</p>
+            {error&&(
+                <div className="text-sm font-bold text-[#A30100] border-[1px] w-1/2 border-[#CC0100] p-3 rounded-md" >
+                    <p>{error}</p>
+                </div>
+            )}
         </div>
+        <Snackbar open={open} autoHideDuration={4000}  onClose={handleClose}>
+            <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                {error}
+            </Alert>
+        </Snackbar>
         <div className='flex w-full gap-5 pb-8'>
             <div className="w-[800px] flex-1 flex flex-col gap-5">
               <FormA />

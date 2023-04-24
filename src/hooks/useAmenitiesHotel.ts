@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import {updateIsExtraOption, updateFavourite, updateInside, updateService, updateBathRoom, updateOutSide, updateDisabilitiesService, updateFamilyService, updateFoot, updateMediaAndTech} from "../slice/Hotel/amenities" 
+
+
 export interface AmenitiesHotel{
   isExtraBedOption: boolean,
   favourite: string[],
@@ -12,6 +14,7 @@ export interface AmenitiesHotel{
   disabilitiesService: string[],
   familyService: string[],
 }
+
 export default function useAmenitiesHotel(){
     const dispatch = useDispatch();
     const amenitiesHotel:AmenitiesHotel = useSelector((state: any)=>state.amenitiesHotel.value)

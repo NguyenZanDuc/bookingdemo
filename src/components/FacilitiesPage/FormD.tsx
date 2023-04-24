@@ -37,7 +37,6 @@ const FormD = (props: Props) => {
         <FormInput >
             <p className="py-2 text-xl font-light">Những tiện nghi được khách ưa chuộng</p>
             <p className='text-xs text-gray-500 bg-[#E6E6E6] p-2'>Khách để tâm đến những tiện nghi này nhất khi họ tìm kiếm chỗ nghỉ.</p>
-            <p>{selected.map((sel)=>sel)}</p>
             <div className="grid grid-cols-2 gap-4">
                 {facilities.map((facility, index)=>{
                         const isChecked = CheckIsChecked( selected, facility)

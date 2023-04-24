@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FormInput from '../ui/FormInput/FormInput'
 import Select, { SingleValue } from 'react-select'
 import { AiFillPlusCircle } from 'react-icons/ai'
@@ -6,7 +6,6 @@ import { FaUser } from 'react-icons/fa'
 import TYPEBED from '@/CONST/TypeBed'
 import NUMBERBED from '@/CONST/Numberbed'
 import { MdDeleteForever } from 'react-icons/md'
-import { Guid } from 'guid-typescript'
 import useRoomHotel from '@/hooks/useRoomHotel'
 
 type Props = {}
@@ -15,7 +14,7 @@ type Props = {}
 
 const FormB = (props: Props) => {
     const {roomHotel,setBedOption, setNumberPeople} = useRoomHotel();
-    const [beds, setBeds] = useState([{typeBed:"Giường đơn   /  Rộng 90-130 cm",number:1}])
+    const [beds, setBeds] = useState(roomHotel.bedsOption)
     const typeBedOptions = TYPEBED.map((typeBed)=>{
         return {
             value: typeBed,
@@ -27,27 +26,41 @@ const FormB = (props: Props) => {
             label: numberBed
         }})
         function HandleTypeBedChange(e :SingleValue<{value: string;label: string;}>|any, index: number){
-               beds[index] = {typeBed: e.value , number:beds[index].number }
-                 setBeds([...beds])
-                 setBedOption(beds)
+              let newBeds = beds.map((item, index1)=>{
+                if(index1==index){
+                    return {typeBed: String(e.value), number: item.number}
+                }
+                return item
+              })
+                 setBeds(newBeds)
 
         }
         function HandleNumberBedChange(e :SingleValue<{value: string;label: string;}>|any, index: number){
-            beds[index] ={typeBed:beds[index].typeBed, number: e.value}
-            setBeds([...beds])
-            setBedOption(beds)
+            let newBeds = beds.map((item, index1)=>{
+                if(index1==index){
+                    return {typeBed: item.typeBed, number: e.value}
+                }
+                return item
+              })
+                 setBeds(newBeds)
    }
         function HandleDeleteBedOption(index: number){
             setBeds(bedsPrev=>bedsPrev.filter((bed,index1)=>index1!=index))
-            setBedOption(beds)
         }
+        useEffect(()=>{
+            if(!roomHotel.bedsOption)setBedOption([{typeBed:"Phòng đơn", number:1}])
+        },[])
+        useEffect(()=>{
+            if(beds){setBedOption(beds)}
+            console.log(beds)
+        },[beds])
   return (
     <FormInput >
         <p className="text-xl">Tùy chọn giường</p>
         <p className="text-xs text-gray-500 bg-[#E6E6E6] p-2">Hãy cho chúng tôi biết về giường có sẵn trong phòng. Không bao gồm giường phụ.</p>
        
         <div className="flex flex-col gap-4">
-           {beds.map((bed, index)=>{
+           {(beds)&&beds.map((bed, index)=>{
             return (
                 <div key={index} >
                     <p className="text-sm">Phòng này có loại giường nào? </p>

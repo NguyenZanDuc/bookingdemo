@@ -5,7 +5,7 @@ const Defaulvalue = {
                   nameOption: "",
                   smoking: "",
                   numberRoom: 1,
-                  bedsOption: [{typeBed: "", number: 1}],
+                  bedsOption: [{typeBed: "Phòng đơn", number: 1}],
                   numberPeople: 0,
                   roomSize: 0,
                   price: 0

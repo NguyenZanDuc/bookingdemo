@@ -1,17 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
 import {updatePark, updateIsPrivate, updateIsInside, updateIsReservation, updateHaveBreakFast, updateType, updateLanguage, updateBestFacility} from "../slice/Hotel/facilities"
+import { object, string, InferType, boolean, array } from 'yup';
 
-export interface FacilitiesHotel{
-  park: string,
-  isPrivate: boolean,
-  isInside: boolean,
-  isReservation: boolean,
-  haveBreakFast: string,
-  type: string,
-  language: string[],
-  bestFacility: string[]
-}
 
+const FacilitiesSchema = object({
+  park: string().required(),
+  isPrivate: boolean().required(),
+  isInside: boolean().required(),
+  isReservation: boolean().required(),
+  haveBreakFast: string().required(),
+  type: string().required(),
+  language: array().required().of(string().required()),
+  bestFacility: array().required().of(string().required())
+})
+type FacilitiesHotel = InferType<typeof FacilitiesSchema>
 export default function useFacilitiesHotel(){
     const facilitiesHotel:FacilitiesHotel = useSelector((state: any)=>state.facilitiesHotel.value)
     const dispatch = useDispatch()
@@ -42,6 +44,7 @@ export default function useFacilitiesHotel(){
       
     return{
         facilitiesHotel,
+        FacilitiesSchema,
         setPark,
         setIsPrivate,
         setIsInside,

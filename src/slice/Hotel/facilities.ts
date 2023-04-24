@@ -6,13 +6,24 @@ const Defaulvalue = {
         isReservation: true,
         haveBreakFast: "Không",
         type: "Á",
-        language: ["Tiếng Việt"],
-        bestFacility: [],
+        language: [""],
+        bestFacility: [""],
+        name: "asa"
       }
 export const facilitiesHotelSlice = createSlice({
     name:"facilitiesHotel",
     initialState: {
-        value: Defaulvalue
+        value: {
+          park: "Không",
+          isPrivate: true,
+          isInside: true,
+          isReservation: true,
+          haveBreakFast: "Không",
+          type: "Á",
+          language: [""],
+          bestFacility: [""],
+          name: "asas"
+        }
     },
     reducers:{
           resetFacilitiesHotel:(state)=>{

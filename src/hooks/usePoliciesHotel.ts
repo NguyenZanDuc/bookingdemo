@@ -1,18 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
 import {updateDayCanCancel, updatePriceAll, updateIsInsurance, updateCheckIn, updateCheckOut, updateIsChildren, updateIsPet} from "../slice/Hotel/policies"
+import { object, string, number, InferType, boolean } from 'yup';
 
-export interface Policies{
-  dayCanCancel: number,
-  priceAll: boolean,
-  isInsurance: boolean,
-  checkIn: string,
-  checkOut: string,
-  isChildren: boolean,
-  isPet: boolean
-}
-
+const PoliciesHotelSchema = object({
+  dayCanCancel: number().required(),
+  priceAll: boolean().required(),
+  isInsurance: boolean().required(),
+  checkIn: string().required(),
+  checkOut: string().required(),
+  isChildren: boolean().required(),
+  isPet: boolean().required()
+})
+type PoliciesHotel = InferType<typeof PoliciesHotelSchema>
 export default function usePoliciesHotel(){
-    const policiesHotel:Policies = useSelector((state: any)=>state.policiesHotel.value)
+    const policiesHotel:PoliciesHotel = useSelector((state: any)=>state.policiesHotel.value)
     const dispatch = useDispatch()
 
     function setDayCanCancel (value: number){
