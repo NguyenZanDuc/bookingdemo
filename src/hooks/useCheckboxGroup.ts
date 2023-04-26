@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useFacilitiesHotel from "./useFacilities";
 export interface SelectedProp{
     value: string,
     isChecked: boolean

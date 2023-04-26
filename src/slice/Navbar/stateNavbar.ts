@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const defaultValue ={
+  about: false,
+  amenities: false,
+  facilities: false,
+  image: false,
+  policies: false,
+  room: false,
+  settings: false
+}
 export const stateNavbarSlice = createSlice({
     name:"stateNavbar",
     initialState: {
-        value: {
-            about: false,
-            amenities: false,
-            facilities: false,
-            image: false,
-            policies: false,
-            room: false,
-            settings: false
-        }
+        value: defaultValue
     },
     reducers:{
       AboutSucess: (state)=>{
@@ -55,9 +55,11 @@ export const stateNavbarSlice = createSlice({
       },
       SettingsChecking: (state)=>{
         state.value.settings = false
+      },
+      resetNavbar: (state)=>{
+        state.value = defaultValue;
       }
-      
     }
 })
-export const {AboutSucess,AmentiesSucess,FacilitiesSucess,ImageSucess,PoliciesSucess,RoomSucess,SettingsSucess,AboutChecking,AmentiesChecking,FacilitiesChecking,ImageChecking,PoliciesChecking,RoomChecking,SettingsChecking} = stateNavbarSlice.actions;
+export const {AboutSucess,AmentiesSucess,FacilitiesSucess,ImageSucess,PoliciesSucess,RoomSucess,SettingsSucess,AboutChecking,AmentiesChecking,FacilitiesChecking,ImageChecking,PoliciesChecking,RoomChecking,SettingsChecking, resetNavbar} = stateNavbarSlice.actions;
 export default stateNavbarSlice.reducer

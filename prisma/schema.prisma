@@ -16,8 +16,8 @@ model Test{
 model Hotel{
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
   nameHotel String
-  star Int //
-  avatar String //
+  star Int 
+  avatar String 
   images String[]
   description String?
   property String
@@ -117,7 +117,7 @@ type PoliciesHotel{
   checkIn String
   checkOut String
   isChildren Boolean
-  isPet Boolean
+  isPet String
 }
 type SettingsHotel{
   isCreditCard Boolean

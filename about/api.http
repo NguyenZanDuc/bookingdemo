@@ -1,6 +1,7 @@
-GET http://localhost:3000/api/hotel/643b400659206ed8f7d0119c
+GET http://localhost:3000/api/hotel/6447345b5d2522c0c1b8ff25
 ###
 GET http://localhost:3000/api/hotel
+# reponr name start name_room namebed price avatar id
 ###
 POST http://localhost:3000/api/hotel
 Content-Type: application/json

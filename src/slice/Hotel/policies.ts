@@ -6,7 +6,7 @@ const Defaulvalue = {
             checkIn:"",
             checkOut: "",
             isChildren: true,
-            isPet: true
+            isPet: "không"
           }
 export const policiesHotelSlice = createSlice({
     name:"policiesHotel",

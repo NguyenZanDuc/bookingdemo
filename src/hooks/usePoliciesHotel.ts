@@ -9,7 +9,7 @@ const PoliciesHotelSchema = object({
   checkIn: string().required(),
   checkOut: string().required(),
   isChildren: boolean().required(),
-  isPet: boolean().required()
+  isPet: string().required()
 })
 type PoliciesHotel = InferType<typeof PoliciesHotelSchema>
 export default function usePoliciesHotel(){
@@ -34,7 +34,7 @@ export default function usePoliciesHotel(){
       function setIsChildren (value: boolean){
         dispatch(updateIsChildren({value: value}))
       }
-      function setIsPet (value: boolean){
+      function setIsPet (value: string){
         dispatch(updateIsPet({value: value}))
       }
     return{

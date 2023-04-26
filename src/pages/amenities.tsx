@@ -13,10 +13,10 @@ const amenities = (props: Props) => {
 
     function HandleContinue(){
         route.replace("/photos")
-        dispatch(AmentiesChecking())
+        dispatch(AmentiesSucess())
      }
      useEffect(()=>{
-      dispatch(AmentiesSucess())
+      dispatch(AmentiesChecking())
      },[])
   return (
     <MainNavbarForm>
@@ -29,7 +29,7 @@ const amenities = (props: Props) => {
                       <FormB />
                       <button onClick={HandleContinue} className="w-full text-white text-lg bg-[#3175B1] rounded-sm py-2">Tiếp tục</button>
                   </div>
-                  <div className="w-[260px]">
+                  <div className="max-w-[260px] hidden xl:block">
                           <div className="p-3 text-xs bg-white ">
                               <p className='text-xs'>Sau khi hoàn tất đăng ký, Quý vị vẫn sẽ có thể thực hiện thay đổi cho đăng ký trước khi chỗ nghỉ online.</p>
                       </div>

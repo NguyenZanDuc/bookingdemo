@@ -64,8 +64,8 @@ const about = (props: Props) => {
               <FormD />
               <button onClick={HandleContinue} className="text-white bg-[#3175B1] py-3 mt-10">Tiếp tục</button>
             </div>
-            <div>
-                <div className="w-auto p-3 text-xs bg-white">
+            <div className='max-w-[260px] hidden xl:block'>
+                <div className="w-auto p-3 text-xs bg-white ">
                     <p>Sau khi hoàn tất đăng ký, Quý vị vẫn sẽ có thể thực hiện thay đổi cho đăng ký trước khi chỗ nghỉ online.</p>
                 </div>
             </div>

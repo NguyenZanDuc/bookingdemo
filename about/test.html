@@ -4,141 +4,144 @@ Invalid `prisma.hotel.create()` invocation:
 {
   data: {
     nameHotel: 'Muong thanh',
-    star: 4,
-    avatar: '233a7415-88b3-10c4-51c0-afa65191efda.png',
+    star: 2,
+    avatar: '8747cd57-58b0-3ed2-233f-55918a809faf.png',
     images: [
-      '233a7415-88b3-10c4-51c0-afa65191efda.png',
-      '18cd7043-452a-355f-6c66-658f822abe66.png'
+      '8747cd57-58b0-3ed2-233f-55918a809faf.png',
+      '65b809bf-125f-5966-cd6f-23d535494437.png'
     ],
     property: 'Nhà khách',
     nameManager: 'nguyen duc',
-    phoneNumber: '0368656127',
-    otherPhoneNumber: '121321',
+    phoneNumber: '0123456789',
+    otherPhoneNumber: '0987654321',
     nameCompany: 'nikey',
-    nameToolManager: '',
-    street: '105',
-    moreAddress: 'asdadas',
+    nameToolManager: 'henxui',
+    street: 'thanh oa',
+    moreAddress: '2',
     country: 'Việt Nam',
-    city: 'thanh hoa',
+    city: 'asas',
     rooms: {
       set: {
-        nameRoom: 'Phòng Deluxe Giường Đôi',
+        nameRoom: 'Phòng Có Giường Cỡ Queen Nhìn Ra Hồ Bơi',
         typeRoom: 'Phòng giường đôi',
         nameOptions: undefined,
         smoking: 'Không hút thuốc',
-        numberRoom: 1,
-                    ~
+        numberRoom: 2,
         numberPeople: 4,
         bedsOption: [
           {
-            typeBed: 'Giường đơn   /  Rộng 90-130 cm',
+            typeBed: 'Phòng 2 giường đơn﻿',
             number: 2
           },
           {
-            typeBed: 'Phòng giường đôi',
-            number: 2
+            typeBed: 'Giường đơn   /  Rộng 90-130 cm',
+            number: 1
           }
         ],
         roomSize: 100,
-        price: 600000
+        price: 499000
       }
     },
-    potalCode: '1233',
+    potalCode: '123',
     amenitiesHotel: {
-      isExtraBedOption: false,
+      isExtraBedOption: true,
       favourite: [
         'Điều hòa không khí',
         'Bồn tắm',
-        'TV màn hình phẳng'
+        'Ấm đun nước điện',
+        'Ban công',
+        'Tầm nhìn ra khung cảnh',
+        'Sân hiên'
       ],
       inside: [
+        'Sàn trải thảm',
         'Tủ hoặc phòng để quần áo',
-        'Giường sofa',
-        'Giường xếp',
-        'Phòng thay quần áo',
-        'Phòng thay quần áo',
-        'Tủ hoặc phòng để quần áo',
-        'Giường sofa',
-        'Giá phơi quần áo'
-      ],
-      foot: [
-        'Tiện nghi BBQ',
-        'Minibar',
-        'Máy nướng bánh mỳ',
-        'Bàn ghế ngoài trời',
-        'Bếp nấu'
+        'Giường cực dài (> 2 mét)'
       ],
       bathRoom: [
-        'Phòng tắm riêng',
+        'Áo choàng tắm',
         'Bồn tắm',
         'Máy sấy tóc'
       ],
       mediaAndTech: [
         'Máy tính xách tay',
-        'Thiết bị chơi game - PS2',
         'Thiết bị chơi game - Nintendo Wii',
-        'Đầu đĩa CD',
-        'Ổ cắm cho iPod'
+        'iPad'
       ],
       service: [
-        'Dịch vụ báo thức',
-        'Ra trải giường',
-        'Đồng hồ báo thức'
+        'Dịch vụ báo thức',
+        'Quyền sử dụng Executive Lounge',
+        'Khăn tắm'
+      ],
+      foot: [
+        'Khu vực ăn uống ngoài trời',
+        'Tiện nghi BBQ',
+        'Minibar'
       ],
       outSide: [
-        'Sân trong',
+        'Sân hiên',
+        'Tầm nhìn ra khung cảnh',
         'Nhìn ra vườn',
-        'Sân hiên'
+        'Nhìn ra núi'
       ],
       disabilitiesService: [
-        'Phòng hoàn toàn có thể tiếp cận bằng xe lăn',
-        'Toilet dành cho người khuyết tật',
-        'Các tầng trên chỉ lên được bằng cầu thang'
+        'Các tầng trên chỉ lên được bằng cầu thang',
+        'Phòng hoàn toàn có thể tiếp cận bằng xe lăn'
       ],
       familyService: [
         'Cửa an toàn cho trẻ nhỏ',
-        'Sách, đĩa DVD và nhạc cho trẻ em',
-        'Nắp che ổ cắm điện an toàn',
         'Trò chơi board game/giải đố'
       ]
     },
     facilitiesHotel: {
-      park: 'có, có trả phí',
+      park: 'không',
       isPrivate: true,
       isInside: true,
       isReservation: true,
       haveBreakFast: 'Có, đã bao gồm trong giá phòng ',
       type: 'Á',
       language: [
-        'Tiếng Albania',
+        'Tiếng Do Thái',
         'Tiếng Việt'
       ],
       bestFacility: [
         'Wi-Fi miễn phí',
+        'Nhà hàng',
         'Trung tâm thể dục',
-        'Xe đưa đón sân bay'
+        'Phòng xông hơi'
       ]
     },
     policiesHotel: {
       dayCanCancel: 0,
-      priceAll: true,
+      priceAll: false,
       isInsurance: true,
       checkIn: '12:00-22:00',
-      checkOut: '12:00-12:00',
+      checkOut: '10:00-10:00',
       isChildren: true,
-      isPet: true
+      isPet: 'không'
     },
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~
     settingsHotel: {
       isCreditCard: true,
       creditCards: [],
       invoiceRecipient: 'name hotel',
-      isGenericAddress: false,
+      isGenericAddress: true,
       address: '',
       isAvailability: true
     }
   }
 }
 
-Argument numberRoom: Got invalid value 1 on prisma.createOneHotel. Provided Int, expected String.
+Argument policiesHotel: Got invalid value 
+{
+  dayCanCancel: 0,
+  priceAll: false,
+  isInsurance: true,
+  checkIn: '12:00-22:00',
+  checkOut: '10:00-10:00',
+  isChildren: true,
+  isPet: 'không'
+}
+on prisma.createOneHotel. Provided Json, expected PoliciesHotelNullableCreateEnvelopeInput or PoliciesHotelCreateInput or Null.
 
 "

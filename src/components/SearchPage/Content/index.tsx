@@ -1,12 +1,26 @@
 import NextButton from '@/components/ui/Button/NextButton'
 import CardSearchMore from '@/components/ui/Card/CardSearchMore'
 import HotelSearchCard from '@/components/ui/Card/HotelSearchCard'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdUnfoldMore } from 'react-icons/md'
+import axios from 'axios'
 
 type Props = {}
 
 const index = (props: Props) => {
+  const [hotels, setHotels] = useState()
+  const hotelApi = axios.create({baseURL:"http://localhost:3000"})
+  async function fetchData(){
+    return await hotelApi.get("/api/hotel").then(data=>data.data)
+
+  }
+  useEffect(()=>{
+     fetchData().then(data=>setHotels(data));
+ 
+  },[])
+  useEffect(()=>{
+    console.log(hotels)
+  },[hotels])
   return (
     <div className="flex flex-col flex-1 gap-4 px-3">
         <div className="flex flex-col gap-3">

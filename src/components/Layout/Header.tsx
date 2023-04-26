@@ -71,8 +71,7 @@ const Header = (props: Props) => {
         <Button variant="text" startIcon={<CarRental />} className="hidden lg:flex rounded-xl"><a className="font-sans text-xs text-white" href="">Thuê xe</a></Button>
         <Button variant="text" startIcon={<Location />} className="hidden lg:flex rounded-xl"><a className="font-sans text-xs text-white" href="">Địa điểm tham quan</a></Button>
         <Button variant="text" startIcon={<AirportTaxi />} className="hidden lg:flex rounded-xl"><a className="font-sans text-xs text-white" href="">Taxi sân bay</a></Button>
-        <Button variant="text" endIcon={<MdOutlineUnfoldMore className='text-white' />} className="lg:hidden rounded-xl"><a className="font-sans text-xs text-white" href="">Khac</a></Button>
-
+        {/* <Button variant="text" endIcon={<MdOutlineUnfoldMore className='text-white' />} className="lg:hidden rounded-xl"><a className="font-sans text-xs text-white" href="">Khac</a></Button> */}
       </div>
     </div>
   )

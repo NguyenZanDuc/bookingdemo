@@ -6,9 +6,8 @@ const Defaulvalue = {
         isReservation: true,
         haveBreakFast: "Không",
         type: "Á",
-        language: [""],
-        bestFacility: [""],
-        name: "asa"
+        language: [],
+        bestFacility: []
       }
 export const facilitiesHotelSlice = createSlice({
     name:"facilitiesHotel",
@@ -20,9 +19,8 @@ export const facilitiesHotelSlice = createSlice({
           isReservation: true,
           haveBreakFast: "Không",
           type: "Á",
-          language: [""],
-          bestFacility: [""],
-          name: "asas"
+          language: [],
+          bestFacility: []
         }
     },
     reducers:{

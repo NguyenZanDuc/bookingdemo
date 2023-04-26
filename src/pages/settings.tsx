@@ -2,13 +2,13 @@ import MainNavbarForm from '@/components/MainNavbarForm/MainNavbarForm'
 import FormA from '@/components/SettingsPage/FormA'
 import FormB from '@/components/SettingsPage/FormB'
 import FormC from '@/components/SettingsPage/FormC'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiFillCheckCircle} from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from "axios"
 import useResetState from '@/hooks/useResetSate'
 import { useRouter } from 'next/navigation'
-import {SettingsChecking, SettingsSucess} from '../slice/Navbar/stateNavbar'
+import {resetNavbar, SettingsSucess} from '../slice/Navbar/stateNavbar'
 import useSettings from '@/hooks/useSettings'
 import { Alert, Snackbar } from '@mui/material'
 
@@ -26,16 +26,16 @@ const settings = (props: Props) => {
    async function HandleSubmit(){
     try {
         await SettingsHotelSchema.validate(settings);
-        dispatch(SettingsSucess())
         const data = await testApi.post("/api/hotel",state)
         if(data){
            resetSate()
+            dispatch(resetNavbar())
           route.replace("/")
         }
       } catch (err:any) {
-          setError(err.errors[0])
+          if(err&&err.errors)setError(err.errors[0])
           setOpen(true)
-          console.log(err.errors) // => 'ValidationError'
+          console.log(err.response.data) // => 'ValidationError'
           
       }
      
@@ -45,8 +45,8 @@ const settings = (props: Props) => {
           return;
         }
         setOpen(false);
-      };
-    
+      }
+      
   return (
     <MainNavbarForm>
           <div className="flex flex-col gap-6 py-6">

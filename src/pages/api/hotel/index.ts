@@ -54,7 +54,8 @@ export default async function handler(
     }
   }else if(req.method == "GET"){
     try {
-        
+      const result = await prisma.hotel.findMany({select:{id:true, nameHotel: true, star:true, avatar:true, rooms:{select: {nameRoom: true, bedsOption: true, price: true}}}})
+      res.status(200).json(result);
     } catch (error: any) {
         res.status(500).json({message: error.message}) 
     }

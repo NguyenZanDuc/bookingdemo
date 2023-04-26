@@ -40,7 +40,7 @@ const FormB = (props: Props) => {
         <div className="flex flex-col gap-8 py-8">
             <div className="flex flex-col w-1/2 gap-2 ">
                 <p className="text-sm">Chúng tôi nên viết tên nào trên hóa đơn (ví dụ: tên công ty/pháp lý)?</p>
-                <Select className="w-full text-sm" onChange={HandleSelect}
+                <Select className="w-full text-sm" value={{label: settingsHotel.invoiceRecipient, value: settingsHotel.invoiceRecipient=="name"?0:1}} onChange={HandleSelect}
                                     options={options}/>
             </div>
             {isOpen&&(
