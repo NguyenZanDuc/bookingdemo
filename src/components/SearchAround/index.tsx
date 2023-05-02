@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import Schedule from '../svg/Schedule'
-import DatePicker from "react-datepicker";
 import { MdExpandMore } from 'react-icons/md'
 import { Checkbox } from '@mui/material'
 import { AiOutlineQuestionCircle } from 'react-icons/ai'
+import DatePicker from '@/components/ui/DatePicker/Index'
 
 type Props = {}
 
 const Index = (props: Props) => {
     const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
+
   return (
     <div className="p-4 bg-[#FEBB00] flex flex-col gap-2 items-start justify-start rounded-sm">
             <p className="text-xl font-medium">Tìm</p>
@@ -25,14 +25,14 @@ const Index = (props: Props) => {
                 <p className="text-xs">Ngày nhận phòng</p>
                 <div className="flex items-center gap-2 px-2 bg-white w-[220px]">
                     <Schedule />
-                    <DatePicker selected={startDate} onChange={(date:any) => setStartDate(date)} className="py-2 outline-none"/>
+                    <DatePicker/>
                 </div>
             </div>
             <div className="flex flex-col items-start gap-[2px]">
                 <p className="text-xs">Ngày trả phòng</p>
                 <div className="flex items-center gap-2 px-2 bg-white w-[220px]">
                     <Schedule />
-                    <DatePicker selected={endDate} onChange={(date:any) => setEndDate(date)} className="py-2 outline-none"/>
+                    <DatePicker/>
                 </div>
             </div>
             <div className="flex flex-col items-start gap-[2px]">
@@ -43,15 +43,15 @@ const Index = (props: Props) => {
                 </div>
             </div>
             <div className="flex flex-col">
-                <div className="flex items-center justify-start w-[220px]">
+                <div className="flex items-end justify-start w-[220px]">
                     <Checkbox />
-                    <p className="text-xs text-start">Căn hộ và nhà nguyên căn</p>
-                    <AiOutlineQuestionCircle className="ml-auto"/>
+                    <p className="text-xs ">Căn hộ và nhà nguyên căn</p>
+                    <AiOutlineQuestionCircle className="self-center ml-auto"/>
                 </div>
-                <div className="flex items-center justify-start w-[220px]">
+                <div className="flex items-end justify-start w-[220px]">
                     <Checkbox />
-                    <p className="text-xs text-start">Tôi đi công tác</p>
-                    <AiOutlineQuestionCircle className="ml-auto"/>
+                    <p className="text-xs ">Tôi đi công tác</p>
+                    <AiOutlineQuestionCircle className="self-center ml-auto"/>
                 </div>
             </div>
             <div className="flex items-center justify-center">

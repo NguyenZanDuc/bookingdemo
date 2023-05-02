@@ -1,4 +1,4 @@
-import {updateNameHotel, updateStarHotel, updatePropertyHotel,updateNameManagerHotel, updateOtherPhoneNumber, updatePhoneNumberHotel, updateNameCompanyHotel, updateNameToolManagerHotel, updateStreetHotel, updateMoreAddressHotel, updatePortalCodeHotel, updateCountryHotel, updateCityHotel} from '../slice/Hotel/about'
+import {updateNameHotel, updateStarHotel, updatePropertyHotel,updateNameManagerHotel, updateOtherPhoneNumber, updatePhoneNumberHotel, updateNameCompanyHotel, updateNameToolManagerHotel, updateStreetHotel, updateMoreAddressHotel, updatePortalCodeHotel, updateCountryHotel, updateCityHotel, updateDescriptionHotel} from '../slice/Hotel/about'
 import { useDispatch, useSelector } from "react-redux";
 import { object, string, number, date, InferType } from 'yup';
 
@@ -15,7 +15,8 @@ const AboutHotelSchema = object({
     moreAddress: string().required(),
     country: string().required(),
     city:string().required(),
-    portalCode: number()
+    portalCode: number(),
+    description: string().required()
 })
 type AboutHotel = InferType<typeof AboutHotelSchema>
 export default function useAboutHotelForm(){
@@ -61,7 +62,9 @@ export default function useAboutHotelForm(){
     function setCityHotel(value: string){
         dispath(updateCityHotel({value: value}))
     }
-
+    function setDescriptionHotel(value: string){
+        dispath(updateDescriptionHotel({value: value}))
+    }
     return {
         aboutHotel,
         AboutHotelSchema,
@@ -77,6 +80,7 @@ export default function useAboutHotelForm(){
         setMoreAddressHotel,
         setCountrysHotel,
         setPortalCodeHotel,
-        setCityHotel
+        setCityHotel,
+        setDescriptionHotel
     }
 }

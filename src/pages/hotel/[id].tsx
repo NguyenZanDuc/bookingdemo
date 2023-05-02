@@ -1,12 +1,11 @@
-
 import Covid19Help from '@/components/General/Covid19Help';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect } from 'react'
 import { GrNext } from 'react-icons/gr';
 import { IoAddOutline, IoBedOutline, IoPricetagOutline } from 'react-icons/io5';
 import SearchAround from '@/components/SearchAround/index'
-import { Rating, styled } from '@mui/material';
+import { Rating } from '@mui/material';
 import ListImage from '@/components/ui/Image/ListImage/Index'
 import { AiFillLike } from 'react-icons/ai';
 import Beach from '@/components/svg/Beach';
@@ -16,8 +15,6 @@ import SwimmingPool from '@/components/svg/Utility/SwimmingPool';
 import Image from 'next/image';
 import { CiLocationOn, CiParking1 } from 'react-icons/ci';
 import RoomTable from '@/components/ui/Table/RoomTable';
-
-import { useScroll } from "framer-motion"
 import { BsAlarm } from 'react-icons/bs';
 import RateProgess from '@/components/ui/RateProgess/RateProgess';
 import CardComment from '@/components/ui/Card/CardComment';
@@ -34,9 +31,11 @@ import CardSvg from '@/components/svg/CardSvg';
 import SmokingSvg from '@/components/svg/SmokingSvg';
 import SodaSvg from '@/components/svg/SodaSvg';
 import PetSvg from '@/components/svg/PetSvg';
-import CardSearchMore from '@/components/ui/Card/CardSearchMore';
-import NextButton from '@/components/ui/Button/NextButton';
 import ListCardByCategory from '@/components/ui/Card/ListCardByCategory';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import useSWR from 'swr';
+import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = {}
 type HotelCity ={
@@ -45,6 +44,22 @@ type HotelCity ={
     details: string[]
 }
 const Index = (props: Props) => {
+    const route = useRouter();
+    const [hotel, setHotel] = React.useState<any>(null);
+    const user = useUser();
+    const GetHotelData = async ( )=>{
+        const hotelId = route.query.id
+        if(!hotelId) return;
+        const data = await axios.get(`http://localhost:3000/api/hotel/${hotelId}`).then((res) => res.data);
+        return data;
+    }
+    const {data, isLoading } = useSWR('hotel', GetHotelData, {refreshInterval: 1000});
+    useEffect(() => {
+        if(data){
+            setHotel(data);
+            console.log(user);
+        }
+    }, [data])
     const cards3:HotelCity[] =[{
         image:"https://cf.bstatic.com/xdata/images/hotel/square600/286659200.webp?k=9206fc9239b3e4538c22d04b85213d6d5e6257015022de8a37effd956fcde4b6&o=&s=1",
         title:"La Roulotte de Ciney",
@@ -62,7 +77,6 @@ const Index = (props: Props) => {
         title:"La Roulotte de Ciney",
         details:["Bỉ, Ciney","Bắt đầu từ € 121","8.4 Rất tốt · 90 đánh giá"]
       }]
-
     function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
         event.preventDefault();
         console.info('You clicked a breadcrumb.');
@@ -99,7 +113,7 @@ const Index = (props: Props) => {
     ]
   
   return (
-    <div  className='flex flex-col w-[1150px] items-center justify-start gap-4  px-4 py-4  mx-auto'>
+    <div  className='flex flex-col w-[1150px] items-center justify-start gap-4  px-4 py-4 mx-auto'>
          <div className="self-start">
                 <Breadcrumbs
                 separator={<GrNext />}

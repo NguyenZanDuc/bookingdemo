@@ -22,5 +22,4 @@ const index = (props: Props) => {
     </div>
   )
 }
-
 export default index

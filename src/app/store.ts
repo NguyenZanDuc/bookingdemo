@@ -7,6 +7,7 @@ import policiesHotelReducer from '../slice/Hotel/policies'
 import roomHotelReducer from '../slice/Hotel/room'
 import settingsHotelReducer from '../slice/Hotel/settings'
 import stateNavbarReducer from '../slice/Navbar/stateNavbar'
+import aroundHotelReducer from "@/slice/Hotel/aroundHotel";
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 
 
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
     policiesHotel: policiesHotelReducer,
     roomHotel: roomHotelReducer,
     settingsHotel: settingsHotelReducer,
-    stateNavbar: stateNavbarReducer
+    stateNavbar: stateNavbarReducer,
+    aroundHotel: aroundHotelReducer
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
@@ -33,7 +35,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PURGE],
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PURGE, REGISTER, PERSIST],
       },
     }),
 });

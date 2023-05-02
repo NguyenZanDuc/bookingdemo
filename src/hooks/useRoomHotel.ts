@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import  { updateTypeRoom,updateNameOption, updateNameRoom, updateSmoking, updateNumberPeople, updateNumberRoom,updateBedOption, updateRoomSize, updatePrice} from "../slice/Hotel/room"
-import { object, string, number, InferType, boolean, array } from 'yup';
+import { object, string, number, array } from 'yup';
 
 
 const RoomHotelSchema = object({

@@ -127,3 +127,6 @@ type SettingsHotel{
   address String
   isAvailability Boolean
 }
+model Guest{
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+}

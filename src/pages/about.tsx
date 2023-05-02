@@ -1,4 +1,3 @@
-
 import FormA from '@/components/AboutPage/FormA'
 import FormB from '@/components/AboutPage/FormB'
 import FormC from '@/components/AboutPage/FormC'
@@ -11,13 +10,17 @@ import {} from '../slice/Hotel/about'
 import { Alert, Snackbar } from '@mui/material'
 import {AboutSucess, AboutChecking} from '../slice/Navbar/stateNavbar'
 import { useDispatch } from 'react-redux'
+import FormE from '@/components/AboutPage/FormE'
+import FormF from '@/components/AboutPage/FormF'
 type Props = {}
 
 const about = (props: Props) => {
     const route = useRouter()
+    const [open, setOpen] = useState(false);
     const dispatch = useDispatch()
     const {aboutHotel, AboutHotelSchema} = useAboutHotelForm()
     const [error, setError] = useState<string>();
+
     async function HandleContinue(){
         try {
             await AboutHotelSchema.validate(aboutHotel);
@@ -26,11 +29,9 @@ const about = (props: Props) => {
         } catch (err:any) {
             setError(err.errors[0])
             setOpen(true)
-            console.log(err.errors) // => 'ValidationError'
-            
+            console.log(err.errors)     
         }
    }
-   const [open, setOpen] = useState(false);
    const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
      if (reason === 'clickaway') {
        return;
@@ -62,6 +63,8 @@ const about = (props: Props) => {
               <FormB />
               <FormC />
               <FormD />
+              <FormE />
+              <FormF />
               <button onClick={HandleContinue} className="text-white bg-[#3175B1] py-3 mt-10">Tiếp tục</button>
             </div>
             <div className='max-w-[260px] hidden xl:block'>

@@ -5,13 +5,14 @@ type Props = {
     title:string,
     content: string,
     icon?: ReactNode
-    tooltip?: string 
+    tooltip?: string,
+    className?: string
 }
 
-const SaleCard = ({title, content, icon, tooltip}: Props) => {
-  const card =( <div className="flex flex-col gap-3 p-3 border-[0.5px] border-[#004CB7] w-[360px] rounded-lg">
+const SaleCard = ({title, content, icon, tooltip,className}: Props) => {
+  const card =( <div className={`flex flex-col gap-1 p-3 border-[0.5px] border-[#004CB7] w-[260px] h-[120px] rounded-lg ${className}`}>
         <p className="flex items-center justify-between text-2xl font-medium">{title} {icon}</p>
-        <p className="text-sm font-light">{content}</p>
+        <p className="text-sm font-normal text-clip">{content}</p>
         </div>)
     return (
         <>

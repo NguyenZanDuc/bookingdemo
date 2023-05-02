@@ -12,7 +12,8 @@ const Defaulvalue = {
     moreAddress: "",
     country:"Việt Nam",
     city:"",
-    portalCode: 0
+    portalCode: 0,
+    description: "",
 }
 export const aboutHotelSlice = createSlice({
     name:"aboutHotel",
@@ -62,7 +63,11 @@ export const aboutHotelSlice = createSlice({
         updatePortalCodeHotel:(state, action)=>{
             state.value.portalCode = action.payload.value
         },
+        updateDescriptionHotel:(state, action)=>{
+            state.value.description = action.payload.value
+        }
+
     }
 })
-export const {resetAboutHotel,updateNameHotel, updateStarHotel,updatePropertyHotel, updateNameManagerHotel, updatePhoneNumberHotel,updateOtherPhoneNumber, updateNameCompanyHotel, updateNameToolManagerHotel, updateStreetHotel, updateMoreAddressHotel,updateCountryHotel, updatePortalCodeHotel, updateCityHotel} = aboutHotelSlice.actions;
+export const {resetAboutHotel,updateNameHotel, updateStarHotel,updatePropertyHotel, updateNameManagerHotel, updatePhoneNumberHotel,updateOtherPhoneNumber, updateNameCompanyHotel, updateNameToolManagerHotel, updateStreetHotel, updateMoreAddressHotel,updateCountryHotel, updatePortalCodeHotel, updateCityHotel, updateDescriptionHotel} = aboutHotelSlice.actions;
 export default aboutHotelSlice.reducer

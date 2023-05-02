@@ -14,16 +14,16 @@ import SaleCard from '@/components/ui/Card/SaleCard'
 import Location from '@/components/ui/Location'
 import Covid19Help from '@/components/General/Covid19Help'
 const cards1:HotelCity[] =[{
-  image:"https://q-xx.bstatic.com/xdata/images/city/170x136/688844.jpg?k=02892d4252c5e4272ca29db5faf12104004f81d13ff9db724371de0c526e1e15&o=",
-  title:"Đà Nẵng",
+  image:"https://r-xx.bstatic.com/xdata/images/city/170x136/688907.jpg?k=8a219233969467d9f7ff828918cce2a53b4db6f1da1039d27222441ffb97c409&o=",
+  title:"Nha Trang",
   details:["2.508 chỗ nghỉ"]
 },{
-  image:"https://q-xx.bstatic.com/xdata/images/city/170x136/688844.jpg?k=02892d4252c5e4272ca29db5faf12104004f81d13ff9db724371de0c526e1e15&o=",
-  title:"Đà Nẵng",
+  image:"https://q-xx.bstatic.com/xdata/images/city/170x136/688956.jpg?k=fc88c6ab5434042ebe73d94991e011866b18ee486476e475a9ac596c79dce818&o=",
+  title:"Vũng Tàu",
   details:["2.508 chỗ nghỉ"]
 },{
-  image:"https://q-xx.bstatic.com/xdata/images/city/170x136/688844.jpg?k=02892d4252c5e4272ca29db5faf12104004f81d13ff9db724371de0c526e1e15&o=",
-  title:"Đà Nẵng",
+  image:"https://r-xx.bstatic.com/xdata/images/city/170x136/688831.jpg?k=7b999c7babe3487598fc4dd89365db2c4778827eac8cb2a47d48505c97959a78&o=",
+  title:"Đà Lạt",
   details:["2.508 chỗ nghỉ"]
 },{
   image:"https://q-xx.bstatic.com/xdata/images/city/170x136/688844.jpg?k=02892d4252c5e4272ca29db5faf12104004f81d13ff9db724371de0c526e1e15&o=",
@@ -31,96 +31,117 @@ const cards1:HotelCity[] =[{
   details:["2.508 chỗ nghỉ"]
 },
 {
-  image:"https://q-xx.bstatic.com/xdata/images/city/170x136/688844.jpg?k=02892d4252c5e4272ca29db5faf12104004f81d13ff9db724371de0c526e1e15&o=",
-  title:"Đà Nẵng",
+  image:"https://q-xx.bstatic.com/xdata/images/city/170x136/688893.jpg?k=d32ef7ff94e5d02b90908214fb2476185b62339549a1bd7544612bdac51fda31&o=",
+  title:"TP. Hồ Chí Minh",
   details:["2.508 chỗ nghỉ"]
 },{
-  image:"https://q-xx.bstatic.com/xdata/images/city/170x136/688844.jpg?k=02892d4252c5e4272ca29db5faf12104004f81d13ff9db724371de0c526e1e15&o=",
-  title:"Đà Nẵng",
+  image:"https://q-xx.bstatic.com/xdata/images/city/170x136/688853.jpg?k=f6427c8fccdf777e4bbc75fcd245e7c66204280181bea23350388c76c57348d1&o=",
+  title:"Hà Nội",
   details:["2.508 chỗ nghỉ"]
 }]
 const cards2:HotelCity[] =[{
-  image:"https://cf.bstatic.com/xdata/images/hotel/square600/203695763.webp?k=ce852647f7278aad9dde0ced98ca65866a52ebf268ae0bdc5f96dfb9898e1b48&o=&s=1",
-  title:"Sala Đà Nẵng Beach Hotel",
-  details:["Da Nang, Viet Nam","Bắt đầu từ € 64"]
-},{
-  image:"https://cf.bstatic.com/xdata/images/hotel/square600/203695763.webp?k=ce852647f7278aad9dde0ced98ca65866a52ebf268ae0bdc5f96dfb9898e1b48&o=&s=1",
-  title:"Sala Đà Nẵng Beach Hotel",
-  details:["Da Nang, Viet Nam","Bắt đầu từ € 64"]
-},{
-  image:"https://cf.bstatic.com/xdata/images/hotel/square600/203695763.webp?k=ce852647f7278aad9dde0ced98ca65866a52ebf268ae0bdc5f96dfb9898e1b48&o=&s=1",
-  title:"Sala Đà Nẵng Beach Hotel",
-  details:["Da Nang, Viet Nam","Bắt đầu từ € 64"]
-},{
-  image:"https://cf.bstatic.com/xdata/images/hotel/square600/203695763.webp?k=ce852647f7278aad9dde0ced98ca65866a52ebf268ae0bdc5f96dfb9898e1b48&o=&s=1",
-  title:"Sala Đà Nẵng Beach Hotel",
-  details:["Da Nang, Viet Nam","Bắt đầu từ € 64"]
-},{
-  image:"https://cf.bstatic.com/xdata/images/hotel/square600/203695763.webp?k=ce852647f7278aad9dde0ced98ca65866a52ebf268ae0bdc5f96dfb9898e1b48&o=&s=1",
-  title:"Sala Đà Nẵng Beach Hotel",
-  details:["Da Nang, Viet Nam","Bắt đầu từ € 64"]
+  image:"https://r-xx.bstatic.com/xdata/images/xphoto/263x210/57584488.jpeg?k=d8d4706fc72ee789d870eb6b05c0e546fd4ad85d72a3af3e30fb80ca72f0ba57&o=",
+  title:"Khách sạn",
+  details:["963.281 khách sạn"] 
+},
+{
+  image:"https://q-xx.bstatic.com/xdata/images/xphoto/263x210/119467716.jpeg?k=63b69100225782d08fbd4d0205bf949c0be894ab946a0366edb8ad48e9c0ef46&o=",
+  title:"Căn hộ",
+  details:["1.072.558 căn hộ"] 
+},
+{
+  image:"https://r-xx.bstatic.com/xdata/images/xphoto/263x210/45450084.jpeg?k=f8c2954e867a1dd4b479909c49528531dcfb676d8fbc0d60f51d7b51bb32d1d9&o=",
+  title:"Resort",
+  details:["19.279 resort"] 
+},
+{
+  image:"https://r-xx.bstatic.com/xdata/images/xphoto/263x210/100235855.jpeg?k=61ef6692e05b5971e2e8dc75687f844e6d0ad295a9a5ace17f7c713f167e61b5&o=",
+  title:"Biệt thự",
+  details:["579.868 biệt thự"] 
 }]
 const cards3:HotelCity[] =[{
   image:"https://cf.bstatic.com/xdata/images/hotel/square600/286659200.webp?k=9206fc9239b3e4538c22d04b85213d6d5e6257015022de8a37effd956fcde4b6&o=&s=1",
   title:"La Roulotte de Ciney",
-  details:["Bỉ, Ciney","Bắt đầu từ € 121","8.4 Rất tốt · 90 đánh giá"]
+  details:["Bỉ, Ciney","8.4 Rất tốt · 90 đánh giá"]
 },{
-  image:"https://cf.bstatic.com/xdata/images/hotel/square600/286659200.webp?k=9206fc9239b3e4538c22d04b85213d6d5e6257015022de8a37effd956fcde4b6&o=&s=1",
-  title:"La Roulotte de Ciney",
-  details:["Bỉ, Ciney","Bắt đầu từ € 121","8.4 Rất tốt · 90 đánh giá"]
+  image:"https://cf.bstatic.com/xdata/images/hotel/square600/132452060.webp?k=8448bab55c87dbb42ab7c6643fbbce542124c908f63f6b36dc3cdc859e60cb0a&o=&s=1",
+  title:"Ranczo w Dolinie",
+  details:["Ba Lan, Kiszkowo","9.4 Xuất sắc · 233 đánh giá"]
 },{
-  image:"https://cf.bstatic.com/xdata/images/hotel/square600/286659200.webp?k=9206fc9239b3e4538c22d04b85213d6d5e6257015022de8a37effd956fcde4b6&o=&s=1",
-  title:"La Roulotte de Ciney",
-  details:["Bỉ, Ciney","Bắt đầu từ € 121","8.4 Rất tốt · 90 đánh giá"]
+  image:"https://cf.bstatic.com/xdata/images/hotel/square600/187855604.webp?k=bbb45aa5b540c7608ea3af52d92b95a215df9af831dd3ae0e4c4cce501e28b1b&o=&s=1",
+  title:"Đức, Trier",
+  details:["Bỉ, Ciney"," 9.5 Xuất sắc · 140 đánh giá"]
 },{
-  image:"https://cf.bstatic.com/xdata/images/hotel/square600/286659200.webp?k=9206fc9239b3e4538c22d04b85213d6d5e6257015022de8a37effd956fcde4b6&o=&s=1",
-  title:"La Roulotte de Ciney",
-  details:["Bỉ, Ciney","Bắt đầu từ € 121","8.4 Rất tốt · 90 đánh giá"]
+  image:"https://cf.bstatic.com/xdata/images/hotel/square600/178421525.webp?k=262301cdcbef1d33942bb02607906eafdee8dde3106ac5732966a206baeebb04&o=&s=1",
+  title:"Đức, Simonsberg",
+  details:["Bỉ, Ciney","9.3 Tuyệt hảo · 48 đánh giá"]
 }]
 const cards4:HotelCity[] =[{
   image:"https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1",
-  title:"Aparthotel Stare Miasto",
+  title:"Old Town, Ba Lan",
   details:["Old Town, Ba Lan, Kraków","Bắt đầu từ € 78", "8.6 Tuyệt vời · 2.137 đánh giá"]
 },{
-  image:"https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1",
+  image:"https://cf.bstatic.com/xdata/images/hotel/square600/87428762.webp?k=9a065fcd92168145d8c8358701662c76793535597b678efc8f6921c8e3c188e6&o=&s=1",
   title:"Aparthotel Stare Miasto",
-  details:["Old Town, Ba Lan, Kraków","Bắt đầu từ € 78", "8.6 Tuyệt vời · 2.137 đánh giá"]
+  details:["Old Town, Ba Lan, Kraków","Bắt đầu từ € 124", "8.6 Tuyệt vời · 2.137 đánh giá"]
 },{
-  image:"https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1",
-  title:"Aparthotel Stare Miasto",
-  details:["Old Town, Ba Lan, Kraków","Bắt đầu từ € 78", "8.6 Tuyệt vời · 2.137 đánh giá"]
+  image:"https://cf.bstatic.com/xdata/images/hotel/square600/95058973.webp?k=979587fd2ac8f7777a34758264d557eef57d0e98e58bdaeb121f5b968a20f810&o=&s=1",
+  title:"Oriente Palace Apartments",
+  details:["Old Town, Ba Lan, Kraków","Bắt đầu từ € 70", "8.6 Tuyệt vời · 2.137 đánh giá"]
 },{
-  image:"https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1",
-  title:"Aparthotel Stare Miasto",
-  details:["Old Town, Ba Lan, Kraków","Bắt đầu từ € 78", "8.6 Tuyệt vời · 2.137 đánh giá"]
+  image:"https://cf.bstatic.com/xdata/images/hotel/square600/352170812.webp?k=75ffc5f9eb3f3cc394b901714c1544757b05849dbbdf30e4fc8c6df53931c131&o=&s=1",
+  title:"numa I Vita Apartments",
+  details:["Old Town, Ba Lan, Kraków","Bắt đầu từ € 286", "8.6 Tuyệt vời · 2.137 đánh giá"]
 }]
-
-const location:Location[] =[{name:"Ninh thuan", detail:"145 chỗ nghỉ"},{name:"Quảng Bình", detail:"268 chỗ nghỉ"},{name:"Ninh thuan", detail:"145 chỗ nghỉ"},{name:"Quảng Bình", detail:"268 chỗ nghỉ"},{name:"Ninh thuan", detail:"145 chỗ nghỉ"},{name:"Quảng Bình", detail:"268 chỗ nghỉ"},{name:"Ninh thuan", detail:"145 chỗ nghỉ"},{name:"Quảng Bình", detail:"268 chỗ nghỉ"},{name:"Ninh thuan", detail:"145 chỗ nghỉ"},{name:"Quảng Bình", detail:"268 chỗ nghỉ"},{name:"Ninh thuan", detail:"145 chỗ nghỉ"},{name:"Quảng Bình", detail:"268 chỗ nghỉ"},{name:"Ninh thuan", detail:"145 chỗ nghỉ"},{name:"Quảng Bình", detail:"268 chỗ nghỉ"},{name:"Ninh thuan", detail:"145 chỗ nghỉ"},{name:"Quảng Bình", detail:"268 chỗ nghỉ"}]
+const location:Location[] =[{name:"Phú Yên",detail:"213 chỗ nghỉ"},
+{name:"Vịnh Hạ Long",detail:"1,370 chỗ nghỉ"},
+{name:"Hà Nội",detail:"3,891 chỗ nghỉ"},
+{name:"Đắc Lắc",detail:"123 chỗ nghỉ"},
+{name:"Ninh Thuận",detail:"145 chỗ nghỉ"},
+{name:"Hà Tĩnh",detail:"37 chỗ nghỉ"},
+{name:"Bạc Liêu",detail:"23 chỗ nghỉ"},
+{name:"Thành phố Đà Nẵng",detail:"2,512 chỗ nghỉ"},
+{name:"Thừa Thiên - Huế",detail:"519 chỗ nghỉ"},
+{name:"Quảng Bình",detail:"267 chỗ nghỉ"},
+{name:"Bình Dương",detail:"78 chỗ nghỉ"},
+{name:"Trà Vinh",detail:"17 chỗ nghỉ"},
+{name:"Bình Thuận",detail:"600 chỗ nghỉ"},
+{name:"Gia Lai",detail:"86 chỗ nghỉ"},
+{name:"Cần Thơ",detail:"352 chỗ nghỉ"},
+{name:"Vĩnh Long",detail:"42 chỗ nghỉ"},
+{name:"Khu vực TP. Hồ Chí Minh",detail:"5,641 chỗ nghỉ"},
+{name:"Cà Mau",detail:"48 chỗ nghỉ"},
+{name:"Thanh Hóa",detail:"253 chỗ nghỉ"}]
 
 const cardsPlan:HotelCity[] =[{
-  image:"https://cf.bstatic.com/xdata/images/xphoto/300x240/140051785.jpg?k=3405c60b82998daeeba1bc3cc635906d4a9fcf0c1ef87d92e886acc9e7466cb5&o=",
-  title:"Lang co",
-  details:["cach Hue 150km"]
-},{
-  image:"https://cf.bstatic.com/xdata/images/xphoto/300x240/140051785.jpg?k=3405c60b82998daeeba1bc3cc635906d4a9fcf0c1ef87d92e886acc9e7466cb5&o=",
-  title:"Lang co",
-  details:["cach Hue 150km"]
-},{
-  image:"https://cf.bstatic.com/xdata/images/xphoto/300x240/140051785.jpg?k=3405c60b82998daeeba1bc3cc635906d4a9fcf0c1ef87d92e886acc9e7466cb5&o=",
-  title:"Lang co",
-  details:["cach Hue 150km"]
-},{
-  image:"https://cf.bstatic.com/xdata/images/xphoto/300x240/140051785.jpg?k=3405c60b82998daeeba1bc3cc635906d4a9fcf0c1ef87d92e886acc9e7466cb5&o=",
-  title:"Lang co",
-  details:["cach Hue 150km"]
-},{
-  image:"https://cf.bstatic.com/xdata/images/xphoto/300x240/140051785.jpg?k=3405c60b82998daeeba1bc3cc635906d4a9fcf0c1ef87d92e886acc9e7466cb5&o=",
-  title:"Lang co",
-  details:["cach Hue 150km"]
-},{
-  image:"https://cf.bstatic.com/xdata/images/xphoto/300x240/140051785.jpg?k=3405c60b82998daeeba1bc3cc635906d4a9fcf0c1ef87d92e886acc9e7466cb5&o=",
-  title:"Lang co",
-  details:["cach Hue 150km"]
+  image:"https://cf.bstatic.com/xdata/images/xphoto/300x240/140009656.jpg?k=350b38ee5a5f178f225d363eab93c7c14fbfee30168745e7db3a5fa38cd5be0e&o=",
+  title:"Hải Phòng",
+  details:["Cách đây 88km"]
+},
+{
+  image:"https://cf.bstatic.com/xdata/images/xphoto/300x240/140009651.jpg?k=ab2b6aec98e6b079f180fbd339c4f5fc361e0c91079b92be6a48b2d5ed2d2c7f&o=",
+  title:"Hạ Long",
+  details:["Cách đây 128km"]
+},
+{
+  image:"https://cf.bstatic.com/xdata/images/xphoto/300x240/140009670.jpg?k=09ac76969af5a6c85132994a1f95586c0a75235e8363572f4dc8e39aab86e828&o=",
+  title:"Đảo Cát Bà",
+  details:["Cách đây 129km"]
+},
+{
+  image:"https://cf.bstatic.com/xdata/images/xphoto/300x240/140009628.jpg?k=585e0e51b1105b4663fca1d75c1471c1340620eac1d08cb6067581a75f950309&o=",
+  title:"Thanh Hóa",
+  details:["Cách đây 136km"]
+},
+{
+  image:"https://cf.bstatic.com/xdata/images/xphoto/300x240/140009631.jpg?k=0a7b0e5ecefbdb4fbff9e76b49b9d28c3bcc8f816909b962d2e85d19e708b761&o=",
+  title:"Sầm Sơn",
+  details:["Cách đây 144km"]
+},
+{
+  image:"https://cf.bstatic.com/xdata/images/xphoto/300x240/140009635.jpg?k=f2c73612dff8a1e2d4dd0ef0db3c206bf699b4d95a16f9e272a373892df422d7&o=",
+  title:"Quảng Ninh",
+  details:["Cách đây 177km"]
 }]
 type HotelCity ={
   image:string,
@@ -153,10 +174,7 @@ export default function Home() {
         <Covid19Help />
         <div className="flex flex-col gap-4">
           <p className="text-2xl font-semibold">Tìm kiếm gần đây của bạn</p>
-          <div className="flex flex-col flex-wrap items-center justify-center gap-5 lg:flex-row">
-            {/* list history search card */}
-              <HistorySearchCard />
-              <HistorySearchCard />
+          <div className="flex flex-col flex-wrap items-center justify-start gap-5 lg:flex-row">
               <HistorySearchCard />
           </div>
         </div>
@@ -177,17 +195,17 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-5">
             <div className="flex justify-between gap-5">
-              <AddressHotelCard/>
-              <AddressHotelCard/>
+              <AddressHotelCard url={'https://cf.bstatic.com/xdata/images/city/600x600/688844.jpg?k=02892d4252c5e4272ca29db5faf12104004f81d13ff9db724371de0c526e1e15&o='} name={'Đà Nẵng'}/>
+              <AddressHotelCard url={'https://cf.bstatic.com/xdata/images/city/600x600/688893.jpg?k=d32ef7ff94e5d02b90908214fb2476185b62339549a1bd7544612bdac51fda31&o='} name={'Tp. Hồ Chí Minh'}/>
             </div>
             <div className="flex justify-between gap-5">
-              <AddressHotelCard/>
-              <AddressHotelCard/>
-              <AddressHotelCard/>
+              <AddressHotelCard url={'https://cf.bstatic.com/xdata/images/city/600x600/688853.jpg?k=f6427c8fccdf777e4bbc75fcd245e7c66204280181bea23350388c76c57348d1&o='} name={'Hà Nội'}/>
+              <AddressHotelCard url={'https://cf.bstatic.com/xdata/images/city/600x600/688956.jpg?k=fc88c6ab5434042ebe73d94991e011866b18ee486476e475a9ac596c79dce818&o='} name={'Vũng Tàu'}/>
+              <AddressHotelCard url={'https://cf.bstatic.com/xdata/images/city/600x600/688831.jpg?k=7b999c7babe3487598fc4dd89365db2c4778827eac8cb2a47d48505c97959a78&o='} name={'Đà Lạt'}/>
             </div>
         </div>
         <ListCardByCategory  category={'Khám phá Việt Nam'} description={'Các điểm đến phổ biến này có nhiều điều chờ đón bạn'} cards={cards1} />
-        <ListCardByCategory category={'Bạn đang tìm chỗ nghỉ lý tưởng?'} description={'Khách có tiêu chí tìm kiếm như bạn đã đặt những chỗ này'} cards={cards2} />
+        <ListCardByCategory category={'Tìm theo loại chỗ nghỉ'} description={''} cards={cards2} />
         <div className="flex flex-col gap-4">
           <p className="text-2xl font-semibold">Lên kế hoạch dễ dàng và nhanh chóng</p>
           <p className="text-base font-light text-gray-600">Khám phá các điểm đến hàng đầu theo cách bạn thích ở Việt Nam</p>
@@ -224,9 +242,8 @@ export default function Home() {
             <a href="#" className="text-sm font-normal text-[#1C79C6]">Tìm hiểu thêm về tặng thưởng</a>
           </div>
           <div className="flex justify-start gap-4 ">
-            <SaleCard title={'Giam gia 10%'} content={'Tan huong giam gia cho nghi tham gia tren toan cau'} tooltip="chi phi phu"/>
-            <SaleCard title={'Giam gia 10%'} content={'Tan huong giam gia cho nghi tham gia tren toan cau'} tooltip="chi phi phu"/>
-            <SaleCard title={'Giam gia 10%'} content={'Tan huong giam gia cho nghi tham gia tren toan cau'} tooltip="chi phi phu"/>
+            <SaleCard title={'Genius'} content={'duc ơi, bạn đang là Genius Cấp 1 trong chương trình khách hàng thân thiết của chúng tôi'} tooltip="chi phi phu" className="text-white bg-[#013B94]"/>
+            <SaleCard title={'Giảm giá 10%'} content={'Tận hưởng giảm giá tại các chỗ nghỉ tham gia trên toàn cầu'}/>
           </div>
         </div>
         <ListCardByCategory category={'Lưu trú tại các chỗ nghỉ độc đáo hàng đầu'} description={'Từ biệt thự, lâu đài cho đến nhà thuyền, igloo, chúng tôi đều có hết'} cards={cards3} />

@@ -15,7 +15,6 @@ const Roomdiv = (props: Props) => {
             const tableHeight =  ref.current?.offsetHeight
             const startTable = ref.current?.offsetTop-4
             const endTable = startTable + tableHeight-74
-            console.log(startTable)
         if(latest>startTable&&latest<endTable){
            setIsFiexd(true)
         }else{

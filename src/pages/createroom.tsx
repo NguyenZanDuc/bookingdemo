@@ -15,13 +15,11 @@ type Props = {}
 const createroom = (props: Props) => {
     const route = useRouter()
     const dispatch = useDispatch()
-
     const {roomHotel, RoomHotelSchema} = useRoomHotel()
-   
     const [error, setError] = useState<string>();
-   const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
-     async function HandleContinue(){
+    async function HandleContinue(){
         try {
             await RoomHotelSchema.validate(roomHotel);
             dispatch(RoomSucess())
@@ -39,6 +37,7 @@ const createroom = (props: Props) => {
     }
     setOpen(false);
   };
+  
   useEffect(()=>{
     dispatch(RoomChecking())
    },[])

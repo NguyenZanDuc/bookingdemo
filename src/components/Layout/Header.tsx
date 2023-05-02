@@ -37,22 +37,22 @@ const Header = (props: Props) => {
     <div className="bg-[#01357F] z-10  w-full lg:px-20 px-3 py-3 text-white h-[100px] flex flex-col">
       <div className="flex items-center justify-between flex-1">
         <Logo />
-        <div className="items-center justify-end hidden gap-6 lg:flex">
+        <div className="items-center justify-end hidden gap-3 lg:flex">
           <Tooltip TransitionComponent={Zoom} TransitionProps={{ timeout: 400 }} title="Chọn loại tiền tệ của bạn">
-            <p className="cursor-pointer">VND</p>
+            <p className="p-3 rounded-lg cursor-pointer hover:bg-white hover:bg-opacity-10">VND</p>
           </Tooltip>
           <Tooltip TransitionComponent={Zoom} TransitionProps={{ timeout: 400 }} title="Chọn ngôn ngữ của bạn">
-            <div className="cursor-pointer">
+            <div className="p-3 rounded-lg cursor-pointer hover:bg-white hover:bg-opacity-10">
               <Flag />
             </div>
           </Tooltip>
           <Tooltip TransitionComponent={Zoom} TransitionProps={{ timeout: 400 }} title="Dịch vụ khách hàng">
-            <div className="cursor-pointer">
+            <div className="p-3 rounded-lg cursor-pointer hover:bg-white hover:bg-opacity-10">
               <AiOutlineQuestionCircle className="w-6 h-6" />
             </div>
           </Tooltip>
           <Tooltip TransitionComponent={Zoom} TransitionProps={{ timeout: 400 }} title="Xem các thông báo của bạn">
-            <div className="cursor-pointer">
+            <div className="p-3 rounded-lg cursor-pointer hover:bg-white hover:bg-opacity-10">
               <IoMdNotificationsOutline className="w-6 h-6" />
             </div>
           </Tooltip>

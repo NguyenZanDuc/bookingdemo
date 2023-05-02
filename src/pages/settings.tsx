@@ -11,8 +11,10 @@ import { useRouter } from 'next/navigation'
 import {resetNavbar, SettingsSucess} from '../slice/Navbar/stateNavbar'
 import useSettings from '@/hooks/useSettings'
 import { Alert, Snackbar } from '@mui/material'
+import useSWRMutation from 'swr/mutation'
 
 type Props = {}
+const testApi = axios.create({baseURL:"http://localhost:3000"})
 
 const settings = (props: Props) => {
     const [error, setError] = useState<string>();
@@ -21,12 +23,18 @@ const settings = (props: Props) => {
     const route = useRouter()
     const dispatch = useDispatch()
     const {settingsHotel, SettingsHotelSchema} = useSettings()
-    const testApi = axios.create({baseURL:"http://localhost:3000"})
     const {resetSate} = useResetState()
+
+    async function CreateHotel(){
+        const data = await testApi.post("/api/hotel",state)
+        return data;
+    }
+    const { trigger,isMutating } = useSWRMutation('/api/hotel', CreateHotel)
+
    async function HandleSubmit(){
     try {
         await SettingsHotelSchema.validate(settings);
-        const data = await testApi.post("/api/hotel",state)
+        let data = await trigger();
         if(data){
            resetSate()
             dispatch(resetNavbar())
@@ -35,8 +43,7 @@ const settings = (props: Props) => {
       } catch (err:any) {
           if(err&&err.errors)setError(err.errors[0])
           setOpen(true)
-          console.log(err.response.data) // => 'ValidationError'
-          
+          console.log(err.response.data) 
       }
      
      }
@@ -68,7 +75,7 @@ const settings = (props: Props) => {
             <FormA />
             <FormB />
             <FormC />
-            <button onClick={()=>{HandleSubmit()}} className="w-full text-white text-lg bg-[#3175B1] rounded-sm py-2">Hoàn tất đăng ký và mở phòng cho khách đặt</button>
+            <button disabled={isMutating} onClick={()=>{HandleSubmit()}} className="w-full text-white text-lg bg-[#3175B1] rounded-sm py-2">Hoàn tất đăng ký và mở phòng cho khách đặt</button>
           </div>
           <div className="w-[260px] flex flex-col gap-5">
                 <div className="p-3 text-xs bg-[#F8FBFD] ">
