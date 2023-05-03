@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import FormInput from '../ui/FormInput/FormInput'
 import { BATHROOM, BESTAMENITIES, DISABILITIES, FAMILYSERVICE, FOOT, INSIDEROOM, MEDIAANDTECH, OUTSIDE, SERVICE } from '@/CONST/Amenities'
 import useAmenitiesHotel from '@/hooks/useAmenitiesHotel'
-import { GrFormNext } from 'react-icons/gr'
+
 import AccordionAmenities from '../Accordion/AccordionAmenities'
+import { GrFormNext } from 'react-icons/gr'
 
 type Props = {}
 
