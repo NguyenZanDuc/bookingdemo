@@ -1,11 +1,6 @@
-import Schedule from '@/components/svg/Schedule'
-import SearchSvg from '@/components/svg/SearchSvg'
-import { Checkbox, Divider, List, ListItem, ListItemText, Select, Switch, ToggleButton, getFormControlLabelUtilityClasses, styled } from '@mui/material'
+import { Divider, List, ListItem, ListItemText, Switch } from '@mui/material'
 import React, { useState } from 'react'
-import {BsSearch} from 'react-icons/bs'
-import DatePicker from "react-datepicker";
 import { MdExpandMore } from 'react-icons/md'
-import { AiOutlineQuestionCircle } from 'react-icons/ai'
 import FilterOption from '@/components/ui/Option/FilterOption'
 import SelectNumber from '@/components/ui/Input/SelectNumber'
 import SearchAround from '@/components/SearchAround'
@@ -13,7 +8,7 @@ import SearchAround from '@/components/SearchAround'
 
 type Props = {}
 
-const Index = (props: Props) => {
+const SearchTab = (props: Props) => {
 
 
     const [slec, setSlec] = useState(false)
@@ -251,4 +246,4 @@ const Index = (props: Props) => {
   )
 }
 
-export default Index
+export default SearchTab

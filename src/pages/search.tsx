@@ -1,10 +1,11 @@
-import { Breadcrumbs, Link, Typography } from '@mui/material';
+import { Breadcrumbs, Link } from '@mui/material';
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import React from 'react'
 import { GrNext } from 'react-icons/gr';
 import "react-datepicker/dist/react-datepicker.css";
 import Content from '@/components/SearchPage/Content';
-import SearchTab from '@/components/SearchPage/SearchTab/Index'
+import SearchTab from '@/components/SearchPage/SearchTab/SearchTab';
+
 
 
 type Props = {}
